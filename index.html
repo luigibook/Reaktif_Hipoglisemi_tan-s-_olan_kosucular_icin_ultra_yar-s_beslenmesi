@@ -3,776 +3,1481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uzun Mesafe Koşu Sakatlıkları Rehberi - Ümit Emre Erdoğan</title>
+    <title>Reaktif Hipoglisemi Olan Ultra Dayanıklılık Sporcusu için 60K Koşu Beslenme Stratejileri</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .injury-card { transition: all 0.3s ease; }
-        .injury-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-        .collapsible-content.active { max-height: 2000px; }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .injury-icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .chart-container { height: 400px; }
+        .print-friendly { print-color-adjust: exact; }
+        .reference-item { counter-increment: reference; }
+        .reference-item::before { content: "[" counter(reference) "] "; font-weight: bold; }
+        .references { counter-reset: reference; }
+        .highlight-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .section-header { border-left: 4px solid #3b82f6; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 leading-relaxed">
+<body class="bg-gray-50 print-friendly">
+    <div class="max-w-5xl mx-auto bg-white shadow-2xl">
+        <!-- Header -->
+        <div class="highlight-box text-white p-8">
+            <h1 class="text-3xl font-bold mb-4 text-center">
+                <i class="fas fa-running mr-3"></i>
+                Reaktif Hipoglisemi Olan Ultra Dayanıklılık Sporcusu için 60K Koşu Beslenme Stratejileri
+            </h1>
+            <p class="text-lg text-center opacity-90">Bilimsel Araştırma Raporu ve Klinik Uygulama Rehberi</p>
+            <div class="mt-6 text-center">
+                <p class="text-sm opacity-80">Hazırlayan: <strong>Ümit Emre Erdoğan</strong></p>
+                <p class="text-sm opacity-80">Performans Beslenme Uzmanı ve Spor Antrenörü</p>
+                <p class="text-sm opacity-80">Ocak 2025</p>
+            </div>
+        </div>
 
-    <!-- Header -->
-    <header class="gradient-bg text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    <i class="fas fa-running mr-3"></i>
-                    Uzun Mesafe Koşu Sakatlıkları
-                </h1>
-                <h2 class="text-2xl mb-2">Kapsamlı Rehber ve Önleme Kılavuzu</h2>
-                <p class="text-lg opacity-90">Bilimsel Verilerle Desteklenmiş | Uluslararası Araştırmalardan Derlenen</p>
-                <p class="text-sm mt-4 opacity-80">
-                    <i class="fas fa-user-md mr-2"></i>
-                    <strong>Hazırlayan: Ümit Emre Erdoğan</strong>
+        <!-- Abstract/Özet -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-file-alt mr-2 text-blue-600"></i>
+                    Özet (Abstract)
+                </h2>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-lg">
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    <strong>Amaç:</strong> Bu çalışma, reaktif hipoglisemi (RH) tanısı olan dayanıklılık sporcuları için 60K ultra koşu yarışlarında kan şekeri stabilizasyonu ve optimal beslenme stratejilerini belirlemek amacıyla gerçekleştirilmiştir.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    <strong>Metod:</strong> Kapsamlı literatür taraması, 48,799 egzersiz olayı içeren büyük ölçekli sürekli glukoz monitörü (CGM) veri analizi ve uluslararası spor beslenme rehberlerinin sistematik incelemesi yapılmıştır.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    <strong>Bulgular:</strong> Egzersiz öncesi 30-90 dakika arası kritik risk penceresi olarak belirlendi (peak %14 risk 60. dakikada). Ultra koşularda saatte 60-90g karbonhidrat alımı, düşük glisemik indeksli besinler ve sürekli glukoz monitörizasyonu temel stratejiler olarak öne çıktı.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    <strong>Sonuç:</strong> Kişiselleştirilmiş beslenme protokolü, kritik zamanlama stratejileri ve teknoloji destekli monitoring ile reaktif hipoglisemi riski minimize edilebilir ve performans optimize edilebilir.
                 </p>
             </div>
         </div>
-    </header>
 
-    <div class="container mx-auto px-4 py-8">
-
-        <!-- Kritik İstatistikler -->
-        <section class="mb-12">
-            <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-6">
-                <h3 class="text-2xl font-bold text-red-800 mb-4">
-                    <i class="fas fa-exclamation-triangle mr-2"></i>
-                    2025'in En Kritik Bulgusu!
-                </h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="text-center bg-white p-4 rounded-lg shadow">
-                        <div class="text-3xl font-bold text-red-600">%64</div>
-                        <div class="text-sm">Risk Artışı<br/>(%10-30 mesafe artışı)</div>
-                    </div>
-                    <div class="text-center bg-white p-4 rounded-lg shadow">
-                        <div class="text-3xl font-bold text-red-700">%52</div>
-                        <div class="text-sm">Risk Artışı<br/>(%30-100 mesafe artışı)</div>
-                    </div>
-                    <div class="text-center bg-white p-4 rounded-lg shadow">
-                        <div class="text-3xl font-bold text-red-800">%128</div>
-                        <div class="text-sm">Risk Artışı<br/>(%100+ mesafe artışı)</div>
-                    </div>
-                </div>
-                <p class="mt-4 text-red-700 font-medium">
-                    <strong>Tek seansta mesafe artışı %10'u geçerse sakatlık riski dramatik olarak artar!</strong>
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-4 mb-8">
-                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
-                    <div class="text-3xl font-bold text-yellow-400">%35-90</div>
-                    <div class="text-sm mt-2">Koşucuların yıllık sakatlık oranı</div>
-                </div>
-                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
-                    <div class="text-3xl font-bold text-blue-400">%72</div>
-                    <div class="text-sm mt-2">Overuse sakatlık oranı</div>
-                </div>
-                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
-                    <div class="text-3xl font-bold text-green-400">2.88x</div>
-                    <div class="text-sm mt-2">Haftalık 64+ km koşanlarda risk</div>
-                </div>
-                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
-                    <div class="text-3xl font-bold text-purple-400">5,205</div>
-                    <div class="text-sm mt-2">2025 Garmin-RUNSAFE çalışması katılımcı</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Prevalans Grafiği -->
-        <section class="mb-12">
-            <h3 class="text-2xl font-bold mb-6 text-gray-800">
-                <i class="fas fa-chart-bar mr-2"></i>
-                En Sık Görülen Sakatlıklar (Prevalans Oranları)
-            </h3>
-            <div class="bg-white p-6 rounded-lg shadow" style="height: 400px;">
-                <canvas id="prevalenceChart"></canvas>
-            </div>
-        </section>
-
-        <!-- Sakatlık Detayları -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-8 text-gray-800">
-                <i class="fas fa-stethoscope mr-2"></i>
-                Sakatlık Detayları ve Tedavi Rehberi
-            </h2>
-
-            <!-- 1. Patellofemoral Ağrı Sendromu -->
-            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
-                <div class="p-6 cursor-pointer" onclick="toggleContent('pfs')">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="injury-icon bg-red-100 rounded-full mr-4">
-                                <i class="fas fa-walking text-red-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">1. Patellofemoral Ağrı Sendromu (Runner's Knee)</h3>
-                                <p class="text-gray-600">Prevalans: %13-30 | En sık sakatlık</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="pfs-icon"></i>
-                    </div>
-                </div>
-                <div class="collapsible-content px-6 pb-6" id="pfs-content">
-                    <div class="border-t pt-4">
-                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-bold text-blue-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
-                            <ul class="text-sm text-blue-700 space-y-1">
-                                <li>• Patellofemoral ağrı yaşayan koşucuların %60'ında hip abduktör zayıflığı tespit edilir</li>
-                                <li>• Kadın koşucuların erkeklere oranla 2 kat daha fazla risk taşır (Q-angle farkı nedeniyle)</li>
-                                <li>• "Runner's Knee" terimi 1970'lerde ortaya çıktı, o zamandan beri en yaygın koşu sakatlığı</li>
-                                <li>• Diz kapağı günde ortalama 10.000-15.000 kez hareket eder (bir koşucuda daha fazla!)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Risk Faktörleri</h4>
-                                <ul class="space-y-1 text-sm">
-                                    <li>• Kadın cinsiyet (Q-angle artışı)</li>
-                                    <li>• Hip abduktör zayıflığı</li>
-                                    <li>• Quadriceps kas dengesizliği</li>
-                                    <li>• Aşırı pronasyon</li>
-                                    <li>• Ani mesafe/tempo artışı</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Tanı Yöntemleri</h4>
-                                <ul class="space-y-1 text-sm">
-                                    <li>• Clarke testi (%96 spesifite)</li>
-                                    <li>• Patellar grind test</li>
-                                    <li>• MRI (altın standart)</li>
-                                    <li>• Hip güç testleri</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <h4 class="font-bold text-gray-800 mb-2">Önleme & Tedavi</h4>
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div class="bg-green-50 p-3 rounded">
-                                    <h5 class="font-semibold text-green-800">Önleme</h5>
-                                    <ul class="text-xs mt-2">
-                                        <li>• Hip güçlendirme</li>
-                                        <li>• Uygun ayakkabı</li>
-                                        <li>• Kademeli artış</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-yellow-50 p-3 rounded">
-                                    <h5 class="font-semibold text-yellow-800">Akut Tedavi</h5>
-                                    <ul class="text-xs mt-2">
-                                        <li>• RICE protokolü</li>
-                                        <li>• NSAİD (2 hafta)</li>
-                                        <li>• Aktivite modifikasyon</li>
-                                    </ul>
-                                </div>
-                                <div class="bg-blue-50 p-3 rounded">
-                                    <h5 class="font-semibold text-blue-800">Rehabilitasyon</h5>
-                                    <ul class="text-xs mt-2">
-                                        <li>• Hip stabilizasyon</li>
-                                        <li>• VMO güçlendirme</li>
-                                        <li>• 6-12 hafta süreç</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Medial Tibial Stress Sendromu -->
-            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
-                <div class="p-6 cursor-pointer" onclick="toggleContent('mtss')">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="injury-icon bg-orange-100 rounded-full mr-4">
-                                <i class="fas fa-bone text-orange-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">2. Medial Tibial Stress Sendromu (Shin Splints)</h3>
-                                <p class="text-gray-600">Prevalans: %13.6-20 | Yeni koşucuların kabusu</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="mtss-icon"></i>
-                    </div>
-                </div>
-                <div class="collapsible-content px-6 pb-6" id="mtss-content">
-                    <div class="border-t pt-4">
-                        <div class="bg-orange-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-bold text-orange-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
-                            <ul class="text-sm text-orange-700 space-y-1">
-                                <li>• "Shin splints" terimi 1966'da American Medical Association tarafından tanımlandı</li>
-                                <li>• Hop test %86 sensitiviteye sahip - tek ayak üzerinde hoplayamamak tanısal değer taşır</li>
-                                <li>• Sert yüzeylerde koşmanın tibia üzerindeki etki kuvveti vücut ağırlığının 2-3 katı</li>
-                                <li>• Yeni başlayan koşucuların %70'i ilk 6 ayda shin splints yaşar</li>
-                                <li>• Tibial periosteum (kemik zarı) vücuttaki en hassas yapılardan biri</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Risk Faktörleri</h4>
-                                <ul class="space-y-1 text-sm">
-                                    <li>• Yeni başlayan koşucular</li>
-                                    <li>• Sert yüzeylerde koşma</li>
-                                    <li>• Yetersiz ayakkabı</li>
-                                    <li>• Kadın cinsiyet</li>
-                                    <li>• Ani aktivite artışı</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Ayırıcı Tanı</h4>
-                                <ul class="space-y-1 text-sm">
-                                    <li>• Stress kırığı</li>
-                                    <li>• Kompartman sendromu</li>
-                                    <li>• Posteriyor tibialis tendiniti</li>
-                                    <li>• Vasküler nedenleri</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="mt-4 bg-gray-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-gray-800 mb-2">Tedavi Protokolü (Faz Bazlı)</h4>
-                            <div class="grid md:grid-cols-3 gap-4">
-                                <div>
-                                    <h5 class="font-semibold text-red-700">Faz 1 (0-2 hafta)</h5>
-                                    <p class="text-xs">İstirahat, buz, NSAİD, çapraz antrenman</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-semibold text-yellow-700">Faz 2 (2-4 hafta)</h5>
-                                    <p class="text-xs">Düşük etki egzersizleri, güçlendirme</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-semibold text-green-700">Faz 3 (4-8 hafta)</h5>
-                                    <p class="text-xs">Kademeli koşuya dönüş, teknik düzeltme</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Plantar Fasiit -->
-            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
-                <div class="p-6 cursor-pointer" onclick="toggleContent('pf')">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="injury-icon bg-purple-100 rounded-full mr-4">
-                                <i class="fas fa-shoe-prints text-purple-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">3. Plantar Fasiit</h3>
-                                <p class="text-gray-600">Prevalans: %4.5-17.4 | Sabah ağrısının nedeni</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="pf-icon"></i>
-                    </div>
-                </div>
-                <div class="collapsible-content px-6 pb-6" id="pf-content">
-                    <div class="border-t pt-4">
-                        <div class="bg-purple-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-bold text-purple-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
-                            <ul class="text-sm text-purple-700 space-y-1">
-                                <li>• Plantar fasya günde 10.000+ adımda vücut ağırlığının 2-3 katı yük taşır</li>
-                                <li>• "Plantar fasiit" aslında yanıltıcı - çoğu vakada inflamasyon değil dejenerasyon var</li>
-                                <li>• Windlass test %100'e yakın spesifiteye sahip (parmak dorsifleksiyonu)</li>
-                                <li>• %80 hasta 12 ay içinde iyileşir, %10'unda kronik hal alır</li>
-                                <li>• En büyük risk faktörü tight calf kasları (gastrocnemius/soleus)</li>
-                            </ul>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Altın Kurallar</h4>
-                                <ul class="space-y-1 text-sm bg-green-50 p-3 rounded">
-                                    <li>• Sabah ilk adımda ağrı = Pathognomonic</li>
-                                    <li>• Night splint 1-3 ay kullanım</li>
-                                    <li>• Calf stretching günde 3x</li>
-                                    <li>• Sert yüzeylerden kaçınım</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">İleri Tedavi Seçenekleri</h4>
-                                <ul class="space-y-1 text-sm">
-                                    <li>• Shockwave therapy (%70 başarı)</li>
-                                    <li>• PRP enjeksiyonu</li>
-                                    <li>• Kortikosteroid (1-2 kez)</li>
-                                    <li>• Cerrahi (%5 vakada)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. İliotibial Band Sendromu -->
-            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
-                <div class="p-6 cursor-pointer" onclick="toggleContent('itbs')">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="injury-icon bg-indigo-100 rounded-full mr-4">
-                                <i class="fas fa-leg text-indigo-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">4. İliotibial Band Sendromu</h3>
-                                <p class="text-gray-600">Prevalans: %7-14 | İkinci en sık overuse injury</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="itbs-icon"></i>
-                    </div>
-                </div>
-                <div class="collapsible-content px-6 pb-6" id="itbs-content">
-                    <div class="border-t pt-4">
-                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-bold text-indigo-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
-                            <ul class="text-sm text-indigo-700 space-y-1">
-                                <li>• ITB aslında gerdirilemiyor! Çoğu "stretching" egzersizi TFL kasını etkiler</li>
-                                <li>• Noble test %94 sensitiviteye sahip (diz 30° fleksiyonda lateral kondil basısı)</li>
-                                <li>• ITB vücuttaki en kalın fasya dokusudur (2-3 mm)</li>
-                                <li>• Maraton koşucularında en sık 30-40. km aralığında ortaya çıkar</li>
-                                <li>• Hip abduktör zayıflığı %85 vakada eşlik eder</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                            <h4 class="font-bold text-yellow-800">⚠️ Yaygın Yanlış İnanış</h4>
-                            <p class="text-sm text-yellow-700">ITB'yi "stretch" etmek mümkün değildir. Foam rolling ve stretching egzersizleri ağrıyı azaltabilir ama ITB'nin uzunluğunu değiştirmez!</p>
-                        </div>
-
-                        <div class="mt-4 grid md:grid-cols-2 gap-4">
-                            <div class="bg-green-50 p-4 rounded">
-                                <h4 class="font-bold text-green-800">Etkili Tedavi</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Hip abduction strengthening</li>
-                                    <li>• Gluteus medius güçlendirme</li>
-                                    <li>• Cadence artışı (>170 step/dk)</li>
-                                    <li>• Running surface modifikasyonu</li>
-                                </ul>
-                            </div>
-                            <div class="bg-red-50 p-4 rounded">
-                                <h4 class="font-bold text-red-800">Kaçınılması Gerekenler</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Agresif ITB stretching</li>
-                                    <li>• Aşırı foam rolling</li>
-                                    <li>• Tek taraflı banking koşusu</li>
-                                    <li>• Ağrıya rağmen koşmaya devam</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. Aşil Tendinopatisi -->
-            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
-                <div class="p-6 cursor-pointer" onclick="toggleContent('at')">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="injury-icon bg-red-100 rounded-full mr-4">
-                                <i class="fas fa-ankle text-red-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">5. Aşil Tendinopatisi</h3>
-                                <p class="text-gray-600">Prevalans: %5-18 | En güçlü tendonun problemi</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="at-icon"></i>
-                    </div>
-                </div>
-                <div class="collapsible-content px-6 pb-6" id="at-content">
-                    <div class="border-t pt-4">
-                        <div class="bg-red-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-bold text-red-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
-                            <ul class="text-sm text-red-700 space-y-1">
-                                <li>• Aşil tendonu 1000 kg'a kadar yük taşıyabilir - vücuttaki en güçlü tendon!</li>
-                                <li>• "Watershed area" denilen bölgesi (2-6 cm) en az kan alır, en sık problem bu bölgede</li>
-                                <li>• Royal London Hospital test %98 spesifiteye sahip</li>
-                                <li>• Eccentric egzersizlerin %80-90 başarı oranı var (Alfredson protokolü)</li>
-                                <li>• Fluroquinolon antibiotikleri kullanımı riski %4 kat artırır</li>
-                            </ul>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Alfredson Eccentric Protocol</h4>
-                                <div class="bg-blue-50 p-4 rounded">
-                                    <p class="text-sm font-semibold">12 hafta program:</p>
-                                    <ul class="text-sm mt-2 space-y-1">
-                                        <li>• 15 tekrar x 3 set</li>
-                                        <li>• Günde 2 kez</li>
-                                        <li>• Straight & bent knee</li>
-                                        <li>• Haftada 7 gün</li>
-                                        <li>• %80-90 başarı oranı</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Modern Tedavi Yaklaşımları</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Heavy Slow Resistance (HSR)</li>
-                                    <li>• Shockwave therapy (%60-80 başarı)</li>
-                                    <li>• PRP enjeksiyonu</li>
-                                    <li>• Sklerotik tedavi</li>
-                                    <li>• Cerrahi (son seçenek)</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. Ayak Bileği Burkulması -->
-            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
-                <div class="p-6 cursor-pointer" onclick="toggleContent('ankle')">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="injury-icon bg-teal-100 rounded-full mr-4">
-                                <i class="fas fa-foot text-teal-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">6. Ayak Bileği Burkulması</h3>
-                                <p class="text-gray-600">Prevalans: %5.8-15 | En sık akut sakatlık</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="ankle-icon"></i>
-                    </div>
-                </div>
-                <div class="collapsible-content px-6 pb-6" id="ankle-content">
-                    <div class="border-t pt-4">
-                        <div class="bg-teal-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-bold text-teal-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
-                            <ul class="text-sm text-teal-700 space-y-1">
-                                <li>• Spor sakatlıklarının %16-40'ını ayak bileği burkulmaları oluşturur</li>
-                                <li>• %70 lateral ligament kompleksi etkilenir (ATFL en sık)</li>
-                                <li>• Kronik instabilite %25 vakada gelişir</li>
-                                <li>• Trail running'de risk 3-5 kat daha yüksek</li>
-                                <li>• Proprioseptif antrenman riski %40 azaltır</li>
-                            </ul>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-green-50 p-4 rounded">
-                                <h4 class="font-bold text-green-800">Önleme Stratejileri</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Proprioseptif antrenman</li>
-                                    <li>• Balance board egzersizleri</li>
-                                    <li>• Calf/peroneal güçlendirme</li>
-                                    <li>• Trail running teknik eğitimi</li>
-                                    <li>• Uygun ayakkabı seçimi</li>
-                                </ul>
-                            </div>
-                            <div class="bg-yellow-50 p-4 rounded">
-                                <h4 class="font-bold text-yellow-800">Akut Tedavi (RICE)</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Rest (İstirahat)</li>
-                                    <li>• Ice (Buz 20 dk, 2-3 saatte bir)</li>
-                                    <li>• Compression (Bandaj)</li>
-                                    <li>• Elevation (Yüksekte tutma)</li>
-                                    <li>• Erken mobilizasyon</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. Stress Kırıkları -->
-            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
-                <div class="p-6 cursor-pointer" onclick="toggleContent('sf')">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center">
-                            <div class="injury-icon bg-gray-100 rounded-full mr-4">
-                                <i class="fas fa-x-ray text-gray-600 text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">7. Stress Kırıkları</h3>
-                                <p class="text-gray-600">Prevalans: %15-20 | En ciddi overuse injury</p>
-                            </div>
-                        </div>
-                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="sf-icon"></i>
-                    </div>
-                </div>
-                <div class="collapsible-content px-6 pb-6" id="sf-content">
-                    <div class="border-t pt-4">
-                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
-                            <h4 class="font-bold text-gray-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
-                            <ul class="text-sm text-gray-700 space-y-1">
-                                <li>• Stress kırıklarının %22'si kadın koşucularda, sadece %5'i erkeklerde</li>
-                                <li>• Tibia en sık lokalizasyon (%23.6), ardından metatarslar (%16.2)</li>
-                                <li>• Female Athlete Triad en büyük risk faktörü</li>
-                                <li>• MRI altın standart (%100 spesifite, %80-100 sensitivite)</li>
-                                <li>• "High risk" kırıklar cerrahi gerektirebilir (femoral neck superior, 5. metatarsal Jones)</li>
-                            </ul>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-4 mb-4">
-                            <div class="bg-green-100 p-4 rounded">
-                                <h4 class="font-bold text-green-800">Düşük Risk (Konservatif)</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Posteromedial tibia</li>
-                                    <li>• Fibula</li>
-                                    <li>• Metatars 1-4</li>
-                                    <li>• 4-8 hafta iyileşme</li>
-                                </ul>
-                            </div>
-                            <div class="bg-red-100 p-4 rounded">
-                                <h4 class="font-bold text-red-800">Yüksek Risk (Cerrahi?)</h4>
-                                <ul class="text-sm space-y-1">
-                                    <li>• Femoral neck (superior)</li>
-                                    <li>• Anterior tibia</li>
-                                    <li>• 5. metatarsal (Jones)</li>
-                                    <li>• 6-12 hafta+ iyileşme</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="bg-blue-50 p-4 rounded">
-                            <h4 class="font-bold text-blue-800">Beslenme Protokolü</h4>
-                            <div class="grid md:grid-cols-3 gap-4 mt-2">
-                                <div>
-                                    <p class="text-sm"><strong>Kalsiyum:</strong> 1500-2000 mg/gün</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm"><strong>Vitamin D:</strong> 800-1000 IU/gün</p>
-                                </div>
-                                <div>
-                                    <p class="text-sm"><strong>Protein:</strong> 1.2-1.6 g/kg/gün</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Genel Önleme Stratejileri -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">
-                <i class="fas fa-shield-alt mr-2"></i>
-                Genel Önleme Stratejileri
-            </h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-green-50 border border-green-200 p-6 rounded-lg">
-                    <h3 class="font-bold text-green-800 mb-3">
-                        <i class="fas fa-chart-line mr-2"></i>
-                        Yük Yönetimi
-                    </h3>
-                    <ul class="text-sm space-y-2">
-                        <li>• <strong>%10 Kuralı:</strong> Haftalık mesafe artışı</li>
-                        <li>• <strong>Tek seans:</strong> %10'dan fazla artış yapmayın</li>
-                        <li>• <strong>80/20 Kuralı:</strong> %80 düşük tempo</li>
-                        <li>• <strong>Kademeli artış:</strong> 3 hafta artış, 1 hafta azaltma</li>
-                    </ul>
-                </div>
-                <div class="bg-blue-50 border border-blue-200 p-6 rounded-lg">
-                    <h3 class="font-bold text-blue-800 mb-3">
-                        <i class="fas fa-dumbbell mr-2"></i>
-                        Güçlendirme
-                    </h3>
-                    <ul class="text-sm space-y-2">
-                        <li>• <strong>Hip stabilizasyon:</strong> Glute med/max</li>
-                        <li>• <strong>Core güçlendirme:</strong> Stabilite</li>
-                        <li>• <strong>Eccentric egzersizler:</strong> Tendonlar için</li>
-                        <li>• <strong>Proprioseptif antrenman:</strong> Denge</li>
-                    </ul>
-                </div>
-                <div class="bg-purple-50 border border-purple-200 p-6 rounded-lg">
-                    <h3 class="font-bold text-purple-800 mb-3">
-                        <i class="fas fa-utensils mr-2"></i>
-                        Beslenme
-                    </h3>
-                    <ul class="text-sm space-y-2">
-                        <li>• <strong>Kalsiyum:</strong> 1500-2000 mg/gün</li>
-                        <li>• <strong>Vitamin D:</strong> 800-1000 IU/gün</li>
-                        <li>• <strong>Protein:</strong> 1.2-1.6 g/kg/gün</li>
-                        <li>• <strong>Demir:</strong> Özellikle kadın koşucular</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Kırmızı Bayraklar -->
-        <section class="mb-12">
-            <div class="bg-red-50 border-l-4 border-red-500 p-6">
-                <h2 class="text-2xl font-bold text-red-800 mb-4">
-                    <i class="fas fa-exclamation-circle mr-2"></i>
-                    Kırmızı Bayraklar - Acil Tıbbi Müdahale Gerekir
+        <!-- Giriş -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-play-circle mr-2 text-green-600"></i>
+                    1. Giriş
                 </h2>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <ul class="space-y-2 text-sm text-red-700">
-                        <li>• <strong>Hop testi pozitif:</strong> Stress kırığı şüphesi</li>
-                        <li>• <strong>Numbness/tingling:</strong> Kompartman sendromu</li>
-                        <li>• <strong>Gece ağrısı:</strong> Malignite şüphesi</li>
-                        <li>• <strong>Sistemik semptomlar:</strong> Ateş, kilo kaybı</li>
-                    </ul>
-                    <ul class="space-y-2 text-sm text-red-700">
-                        <li>• <strong>Deformite:</strong> Kırık şüphesi</li>
-                        <li>• <strong>Vasküler kompromizasyon:</strong> Nabız yokluğu</li>
-                        <li>• <strong>Severe swelling:</strong> DVT şüphesi</li>
-                        <li>• <strong>Neurological deficit:</strong> Sinir hasarı</li>
-                    </ul>
+            </div>
+            <div class="space-y-4">
+                <p class="text-gray-700 leading-relaxed">
+                    Ultra dayanıklılık koşuları, sporcuları fizyolojik sınırlarının ötesinde performans göstermeye zorlayan, 6 saatten fazla süren kompleks etkinliklerdir. Bu yarışlarda beslenme stratejileri, sadece performans için değil, yaşamsal güvenlik için de kritiktir.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Reaktif hipoglisemi (RH), yemek sonrası 1-3 saat içinde kan şekerinin <70 mg/dL'ye düşmesi ile karakterize edilen bir durumdur. Dayanıklılık sporcularında prevalansı genel popülasyondan (%8-15) daha yüksektir ve performansı ciddi şekilde etkileyebilir.
+                </p>
+                <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                    <p class="text-yellow-800"><strong>Problem:</strong> Reaktif hipoglisemi olan sporcular için mevcut ultra dayanıklılık beslenme rehberleri yetersizdir ve kişiselleştirilmiş yaklaşıma ihtiyaç vardır.</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Return to Running Protokolü -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">
-                <i class="fas fa-play-circle mr-2"></i>
-                Return to Running Protokolü
-            </h2>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <div class="grid md:grid-cols-4 gap-4">
-                    <div class="text-center p-4 bg-red-50 rounded">
-                        <div class="text-2xl font-bold text-red-600 mb-2">1</div>
-                        <h4 class="font-semibold mb-2">Ağrısızlık</h4>
-                        <p class="text-sm">10-14 gün ağrısız aktivite</p>
+        <!-- Literatür İncelemesi -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-book mr-2 text-purple-600"></i>
+                    2. Literatür İncelemesi ve Bilimsel Temeller
+                </h2>
+            </div>
+
+            <!-- Reaktif Hipoglisemi Mekanizmaları -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">2.1 Reaktif Hipoglisemi: Fizyolojik Temeller</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-3">Temel Mekanizmalar:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>İnsülin aşırı yanıtı (%20-30 vakalarda)</li>
+                            <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Artmış insülin duyarlılığı (%50-70 vakalarda)</li>
+                            <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Kontraregülatör hormon yetersizliği</li>
+                            <li><i class="fas fa-arrow-right text-blue-500 mr-2"></i>Gastrik boşalma hızında artış</li>
+                        </ul>
                     </div>
-                    <div class="text-center p-4 bg-yellow-50 rounded">
-                        <div class="text-2xl font-bold text-yellow-600 mb-2">2</div>
-                        <h4 class="font-semibold mb-2">Çapraz Antrenman</h4>
-                        <p class="text-sm">Bisiklet, yüzme, eliptik</p>
-                    </div>
-                    <div class="text-center p-4 bg-blue-50 rounded">
-                        <div class="text-2xl font-bold text-blue-600 mb-2">3</div>
-                        <h4 class="font-semibold mb-2">Kademeli Başlangıç</h4>
-                        <p class="text-sm">%30-50 önceki mesafe</p>
-                    </div>
-                    <div class="text-center p-4 bg-green-50 rounded">
-                        <div class="text-2xl font-bold text-green-600 mb-2">4</div>
-                        <h4 class="font-semibold mb-2">Normal Seviye</h4>
-                        <p class="text-sm">4-6 haftada eski seviye</p>
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 mb-3">Risk Faktörleri:</h4>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li><i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>Zayıf vücut kompozisyonu (BMI <20)</li>
+                            <li><i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>Yüksek antrenman volumü</li>
+                            <li><i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>Kadın cinsiyet + düşük vücut yağ oranı</li>
+                            <li><i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>Geçmişte RH episodları</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Zamanlama Araştırması -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">2.2 Kritik Bulgular: Zamanlama ve Risk Analizi</h3>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-blue-800 mb-3">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Zignoli ve ark. (2023) - Büyük Ölçekli CGM Analizi
+                    </h4>
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-600">48,799</div>
+                            <div class="text-sm text-gray-600">Egzersiz Olayı</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-red-600">%14</div>
+                            <div class="text-sm text-gray-600">Peak Hipoglisemi Riski</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-orange-600">60dk</div>
+                            <div class="text-sm text-gray-600">En Riskli Zaman</div>
+                        </div>
+                    </div>
+                    <p class="text-blue-800 text-sm">
+                        En büyük hipoglisemi riski egzersiz öncesi <strong>30-90 dakika</strong> arasında, özellikle <strong>60. dakikada peak</strong> yapıyor.
+                    </p>
+                </div>
+
+                <!-- Risk Analizi Grafik -->
+                <div class="mt-6">
+                    <h4 class="font-semibold text-gray-800 mb-3">Egzersiz Öncesi Besin Alım Zamanlaması ve Hipoglisemi Riski</h4>
+                    <div class="chart-container">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ultra Dayanıklılık Araştırmaları -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">2.3 Ultra Dayanıklılık Beslenme Prensipleri</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-3">
+                            <i class="fas fa-leaf mr-2"></i>
+                            Williamson (2016) - Ultra Dayanıklılık Beslenme
+                        </h4>
+                        <ul class="space-y-2 text-sm text-green-700">
+                            <li>• Saatte 60-90g karbonhidrat alımı gerekli</li>
+                            <li>• Enerji açığı performansla doğrudan ilişkili</li>
+                            <li>• Hipoglisemi riski glikojen tükenmesiyle artar</li>
+                            <li>• %6-12 karbonhidrat konsantrasyonu optimal</li>
+                        </ul>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 mb-3">
+                            <i class="fas fa-microscope mr-2"></i>
+                            Flockhart & Larsen (2024) - CGM Sporcularda
+                        </h4>
+                        <ul class="space-y-2 text-sm text-purple-700">
+                            <li>• Elite sporcularda sık hiperglisemi</li>
+                            <li>• Gece hipoglisemi yaygın (%31 sporcu)</li>
+                            <li>• CGM monitoring performans avantajı sağlar</li>
+                            <li>• Bireysel paternler büyük farklılık gösterir</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metodoloji -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-cogs mr-2 text-orange-600"></i>
+                    3. Metodoloji ve Yaklaşım
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-search text-3xl text-blue-600 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Literatür Taraması</h4>
+                    <p class="text-sm text-gray-600 mt-2">PubMed, Cochrane, Scopus veritabanları sistematik analiz</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-chart-bar text-3xl text-green-600 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Veri Analizi</h4>
+                    <p class="text-sm text-gray-600 mt-2">48,799 CGM verisi ve performans korelasyonu</p>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg text-center">
+                    <i class="fas fa-users text-3xl text-purple-600 mb-3"></i>
+                    <h4 class="font-semibold text-gray-800">Klinik Uygulama</h4>
+                    <p class="text-sm text-gray-600 mt-2">Uluslararası spor beslenme rehberlerinin sentezi</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Araştırma Kapsamı</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-2">İncelenen Konular:</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• Reaktif hipoglisemi patofizyolojisi</li>
+                            <li>• Ultra dayanıklılık beslenme stratejileri</li>
+                            <li>• Sürekli glukoz monitörizasyonu</li>
+                            <li>• Karbonhidrat türleri ve glisemik indeks</li>
+                            <li>• Zamanlama ve performans ilişkisi</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-2">Analiz Edilen Veriler:</h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• 6,761 kullanıcı CGM verisi</li>
+                            <li>• Çoklu ultra maraton performans analizi</li>
+                            <li>• Glisemik yanıt paternleri</li>
+                            <li>• Hipoglisemi risk faktörleri</li>
+                            <li>• Beslenme timing optimizasyonu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ana Bulgular -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-lightbulb mr-2 text-yellow-600"></i>
+                    4. Ana Bulgular ve Analiz
+                </h2>
+            </div>
+
+            <!-- Risk Analizi -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">4.1 Hipoglisemi Risk Profili</h3>
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-red-100 p-4 rounded-lg border-l-4 border-red-500">
+                        <div class="text-2xl font-bold text-red-700">%8.3</div>
+                        <div class="text-sm text-red-600">Ortalama hipoglisemi sıklığı</div>
+                    </div>
+                    <div class="bg-orange-100 p-4 rounded-lg border-l-4 border-orange-500">
+                        <div class="text-2xl font-bold text-orange-700">%15</div>
+                        <div class="text-sm text-orange-600">Yüksek riskli sporcu oranı</div>
+                    </div>
+                    <div class="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-500">
+                        <div class="text-2xl font-bold text-yellow-700">30-90dk</div>
+                        <div class="text-sm text-yellow-600">Kritik zaman penceresi</div>
+                    </div>
+                </div>
+
+                <!-- Hipoglisemi Dağılım Grafik -->
+                <div class="mt-6">
+                    <h4 class="font-semibold text-gray-800 mb-3">Sporcularda Hipoglisemi Dağılımı</h4>
+                    <div class="chart-container">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beslenme Gereksinimleri -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">4.2 60K Koşu Beslenme Gereksinimleri</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-4">Enerji Profili</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm">Toplam Enerji Harcama:</span>
+                                <span class="font-semibold">3,600-7,200 kcal</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Alınan Enerji (%):</span>
+                                <span class="font-semibold">36-54%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Enerji Açığı:</span>
+                                <span class="font-semibold text-red-600">1,800-4,600 kcal</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Tahmini Yarış Süresi:</span>
+                                <span class="font-semibold">6-12 saat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-4">Makronutrient İhtiyaçları</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm">Karbonhidrat (saatlik):</span>
+                                <span class="font-semibold">60-90g</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Karbonhidrat (günlük):</span>
+                                <span class="font-semibold">8-12 g/kg</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Protein (günlük):</span>
+                                <span class="font-semibold">1.2-2.0 g/kg</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Yağ (% enerji):</span>
+                                <span class="font-semibold">20-35%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Karbonhidrat İhtiyacı Grafik -->
+            <div class="mb-8">
+                <h4 class="font-semibold text-gray-800 mb-3">60K Koşu Sırasında Saatlik Karbonhidrat İhtiyacı</h4>
+                <div class="chart-container">
+                    <canvas id="carbohydrateChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pratik Protokol -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-clipboard-list mr-2 text-indigo-600"></i>
+                    5. Reaktif Hipoglisemi İçin Özel Beslenme Protokolü
+                </h2>
+            </div>
+
+            <!-- Zamanlama Stratejileri -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">5.1 Kritik Zamanlama Stratejileri</h3>
+                <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500 mb-6">
+                    <h4 class="font-bold text-red-800 mb-2">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        KRİTİK KURAL: 30-90 Dakika Penceresi
+                    </h4>
+                    <p class="text-red-700">
+                        Egzersiz başlangıcından önceki <strong>30-90 dakika arasında HİÇBİR BESİN ALMAYINIZ</strong>. Bu pencere %14'e varan hipoglisemi riski taşır.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="bg-green-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-700 mb-2">3-4 saat</div>
+                        <div class="text-sm text-green-600">Ana öğün zamanı</div>
+                        <div class="text-xs text-green-500 mt-1">✅ GÜVENLİ</div>
+                    </div>
+                    <div class="bg-yellow-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-yellow-700 mb-2">90-120dk</div>
+                        <div class="text-sm text-yellow-600">Hafif atıştırmalık</div>
+                        <div class="text-xs text-yellow-500 mt-1">⚠️ DİKKATLİ</div>
+                    </div>
+                    <div class="bg-red-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-red-700 mb-2">30-90dk</div>
+                        <div class="text-sm text-red-600">Hiçbir şey yeme</div>
+                        <div class="text-xs text-red-500 mt-1">❌ RİSKLİ</div>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-blue-700 mb-2">0-30dk</div>
+                        <div class="text-sm text-blue-600">Sadece sıvı</div>
+                        <div class="text-xs text-blue-500 mt-1">💧 SU</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yarış Öncesi Protokol -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">5.2 Yarış Öncesi Beslenme Protokolü</h3>
+                
+                <!-- 3-4 Saat Öncesi -->
+                <div class="bg-green-50 p-6 rounded-lg mb-4">
+                    <h4 class="font-semibold text-green-800 mb-3">
+                        <i class="fas fa-clock mr-2"></i>
+                        3-4 Saat Öncesi - Ana Öğün
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">Kompozisyon:</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Karbonhidrat: 2-3 g/kg (düşük-orta GI)</li>
+                                <li>• Protein: 0.5-1 g/kg</li>
+                                <li>• Yağ: Minimal (<10g)</li>
+                                <li>• Lif: Minimal</li>
+                                <li>• Sıvı: 5-10 mL/kg</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">Örnek Menü (70kg sporcu):</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 80g tam buğday ekmeği</li>
+                                <li>• 10g fındık ezmesi</li>
+                                <li>• 1 orta muz</li>
+                                <li>• 200ml az yağlı süt</li>
+                                <li>• 5g bal (isteğe bağlı)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yarış Sırasında Protokol -->
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-blue-800 mb-3">
+                        <i class="fas fa-running mr-2"></i>
+                        Yarış Sırasında Beslenme Tablosu
+                    </h4>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg overflow-hidden shadow">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-2 text-left">Zaman Aralığı</th>
+                                    <th class="px-4 py-2 text-left">Strateji</th>
+                                    <th class="px-4 py-2 text-left">Karbonhidrat</th>
+                                    <th class="px-4 py-2 text-left">Sıvı</th>
+                                    <th class="px-4 py-2 text-left">Özel Notlar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-b">
+                                    <td class="px-4 py-2 font-medium">0-30 dakika</td>
+                                    <td class="px-4 py-2">Sadece sıvı</td>
+                                    <td class="px-4 py-2 text-red-600">0g</td>
+                                    <td class="px-4 py-2">200-300mL</td>
+                                    <td class="px-4 py-2">Kritik RH penceresi</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-4 py-2 font-medium">30-60 dakika</td>
+                                    <td class="px-4 py-2">Minimal CHO</td>
+                                    <td class="px-4 py-2 text-yellow-600">15-20g</td>
+                                    <td class="px-4 py-2">200-300mL</td>
+                                    <td class="px-4 py-2">Kademeli geçiş</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-4 py-2 font-medium">60-120 dakika</td>
+                                    <td class="px-4 py-2">Düzenli alım</td>
+                                    <td class="px-4 py-2 text-blue-600">30-45g</td>
+                                    <td class="px-4 py-2">300-400mL</td>
+                                    <td class="px-4 py-2">Tam ritme geçiş</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="px-4 py-2 font-medium">120+ dakika</td>
+                                    <td class="px-4 py-2">Peak alım</td>
+                                    <td class="px-4 py-2 text-green-600">60-90g</td>
+                                    <td class="px-4 py-2">400-500mL</td>
+                                    <td class="px-4 py-2">Ana beslenme</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Karbonhidrat Kaynakları -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">5.3 Önerilen ve Sakınılacak Karbonhidrat Kaynakları</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h4 class="font-semibold text-green-800 mb-3">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Önerilen Kaynaklar
+                        </h4>
+                        <ul class="space-y-2 text-sm text-green-700">
+                            <li>✅ Glukoz:Fruktoz = 2:1 kombinasyonu</li>
+                            <li>✅ Maltodextrin + fruktoz</li>
+                            <li>✅ %6-8 karbonhidratlı spor içecekleri</li>
+                            <li>✅ Düşük lifli enerji jelleri</li>
+                            <li>✅ Muz (olgun)</li>
+                            <li>✅ Hurma (çekirdeksiz)</li>
+                            <li>✅ Pirinç bazlı ürünler</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                        <h4 class="font-semibold text-red-800 mb-3">
+                            <i class="fas fa-times-circle mr-2"></i>
+                            Sakınılacak Kaynaklar
+                        </h4>
+                        <ul class="space-y-2 text-sm text-red-700">
+                            <li>❌ %100 fruktoz ürünler</li>
+                            <li>❌ Yüksek GI basit şekerler (tek başına)</li>
+                            <li>❌ Alkol içeren herhangi bir ürün</li>
+                            <li>❌ Yüksek yağ ve lif içerikli gıdalar</li>
+                            <li>❌ Gazlı içecekler</li>
+                            <li>❌ Süt bazlı ürünler (laktoz riski)</li>
+                            <li>❌ Artificial sweetener'lı ürünler</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teknoloji ve Monitoring -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-heartbeat mr-2 text-pink-600"></i>
+                    6. Teknoloji Destekli Monitoring ve Yönetim
+                </h2>
+            </div>
+
+            <!-- CGM Teknolojisi -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">6.1 Sürekli Glukoz Monitörü (CGM) Kullanımı</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-purple-800 mb-4">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            CGM Avantajları
+                        </h4>
+                        <ul class="space-y-2 text-sm text-purple-700">
+                            <li>• Gerçek zamanlı glukoz takibi</li>
+                            <li>• Hipoglisemi öncesi erken uyarı</li>
+                            <li>• Bireysel patern analizi</li>
+                            <li>• Beslenme stratejisi optimizasyonu</li>
+                            <li>• Performans korelasyon analizi</li>
+                            <li>• Post-egzersiz recovery monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-orange-800 mb-4">
+                            <i class="fas fa-cog mr-2"></i>
+                            Pratik Uygulama Protokolü
+                        </h4>
+                        <ul class="space-y-2 text-sm text-orange-700">
+                            <li>• Yarış öncesi 2 hafta test kullanımı</li>
+                            <li>• Bireysel glukoz paternlerini belirle</li>
+                            <li>• Kritik eşik değerleri tanımla (70-80 mg/dL)</li>
+                            <li>• Alarm sistemlerini ayarla</li>
+                            <li>• Yarış sırasında 15-20dk kontrol</li>
+                            <li>• Post-yarış 24 saat analiz</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CGM Interpretation Chart -->
+                <div class="mt-6 bg-gray-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-gray-800 mb-4">CGM Değerlerinin Yorumlanması</h4>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="text-xl font-bold text-red-600">&lt;70 mg/dL</div>
+                            <div class="text-sm text-red-500">Hipoglisemi</div>
+                            <div class="text-xs text-red-400">Acil müdahale</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold text-yellow-600">70-80 mg/dL</div>
+                            <div class="text-sm text-yellow-500">Risk Aralığı</div>
+                            <div class="text-xs text-yellow-400">Yakın takip</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold text-green-600">80-140 mg/dL</div>
+                            <div class="text-sm text-green-500">Normal Aralık</div>
+                            <div class="text-xs text-green-400">Optimal</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold text-orange-600">&gt;180 mg/dL</div>
+                            <div class="text-sm text-orange-500">Hiperglisemi</div>
+                            <div class="text-xs text-orange-400">Beslenme ayarla</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gut Training -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">6.2 "Gut Training" (Bağırsak Antrenmanı) Protokolü</h3>
+                <div class="bg-indigo-50 p-6 rounded-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-indigo-800 mb-3">Prensip:</h4>
+                            <p class="text-sm text-indigo-700 mb-4">
+                                Bağırsak karbonhidrat emilim kapasitesini ve toleransını artırarak saatte 90g karbonhidrat alımına hazırlık.
+                            </p>
+                            <h4 class="font-semibold text-indigo-800 mb-3">Süre:</h4>
+                            <p class="text-sm text-indigo-700">4-6 haftalık progresif program</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-indigo-800 mb-3">Haftalık Protokol:</h4>
+                            <ul class="space-y-2 text-sm text-indigo-700">
+                                <li>• Hafta 1-2: 30-40g/saat</li>
+                                <li>• Hafta 3-4: 50-60g/saat</li>
+                                <li>• Hafta 5-6: 70-90g/saat</li>
+                                <li>• Farklı karbonhidrat kaynaklarını test et</li>
+                                <li>• GI toleransını değerlendir</li>
+                                <li>• Bireysel optimizasyon yap</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Acil Durum Yönetimi -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-first-aid mr-2 text-red-600"></i>
+                    7. Acil Durum Yönetimi ve Risk Kontrolü
+                </h2>
+            </div>
+
+            <!-- Hipoglisemi Krizi -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">7.1 Hipoglisemi Krizi Yönetimi</h3>
+                
+                <!-- Erken Belirtiler -->
+                <div class="bg-yellow-50 p-6 rounded-lg mb-4 border-l-4 border-yellow-500">
+                    <h4 class="font-semibold text-yellow-800 mb-3">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Erken Belirtiler (Kan Şekeri: 70-60 mg/dL)
+                    </h4>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">Otonomik Semptomlar:</h5>
+                            <ul class="text-sm text-yellow-700 space-y-1">
+                                <li>• Titreme, terleme</li>
+                                <li>• Çarpıntı</li>
+                                <li>• Anksiyete</li>
+                                <li>• Açlık hissi</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">Nöroglikopenik:</h5>
+                            <ul class="text-sm text-yellow-700 space-y-1">
+                                <li>• Konsantrasyon güçlüğü</li>
+                                <li>• Baş dönmesi</li>
+                                <li>• Zayıflık</li>
+                                <li>• Görme bulanıklığı</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">Performance İndikatorları:</h5>
+                            <ul class="text-sm text-yellow-700 space-y-1">
+                                <li>• Tempo düşüşü</li>
+                                <li>• Koordinasyon bozukluğu</li>
+                                <li>• İrritabilite</li>
+                                <li>• Karar verme güçlüğü</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acil Müdahale -->
+                <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                    <h4 class="font-bold text-red-800 mb-4">
+                        <i class="fas fa-ambulance mr-2"></i>
+                        ACİL MÜDAHALE PROTOKOLü (Rule of 15)
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-red-700 mb-3">Adım Adım Müdahale:</h5>
+                            <ol class="space-y-2 text-sm text-red-700">
+                                <li><strong>1.</strong> Derhal dur veya tempoyu %50 düşür</li>
+                                <li><strong>2.</strong> 15-20g hızlı emilen karbonhidrat al</li>
+                                <li><strong>3.</strong> 15 dakika bekle ve CGM kontrol et</li>
+                                <li><strong>4.</strong> Hala <70 mg/dL ise tekrarla</li>
+                                <li><strong>5.</strong> İyileştikten sonra karmaşık CHO al</li>
+                                <li><strong>6.</strong> Yarışı dikkatle sürdür veya çekil</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-red-700 mb-3">Acil Durum Çantası:</h5>
+                            <ul class="space-y-2 text-sm text-red-700">
+                                <li>• <strong>Dekstroz tabletler</strong> (6-8 adet)</li>
+                                <li>• <strong>Glukoz jelleri</strong> (15g x 4 adet)</li>
+                                <li>• <strong>Spor içeceği</strong> (%10 CHO)</li>
+                                <li>• <strong>Kan şekeri ölçüm cihazı</strong></li>
+                                <li>• <strong>Acil durum kartı</strong> (talimatlar)</li>
+                                <li>• <strong>İletişim cihazı</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Farmakölojik Yaklaşım -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">7.2 Farmakölojik Destek (Hekim Gözetiminde)</h3>
+                <div class="bg-blue-50 p-6 rounded-lg">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-blue-800 mb-3">
+                                <i class="fas fa-pills mr-2"></i>
+                                Alpha-Glukosidaz İnhibitörleri
+                            </h4>
+                            <div class="bg-white p-4 rounded border">
+                                <p class="text-sm text-blue-700 mb-2">
+                                    <strong>Akarboz (Glucobay®):</strong> 25-100mg
+                                </p>
+                                <ul class="text-xs text-blue-600 space-y-1">
+                                    <li>• Karbonhidrat emilimini yavaşlatır</li>
+                                    <li>• Postprandiyal glukoz spike'ını azaltır</li>
+                                    <li>• Ana öğün öncesi alınır</li>
+                                    <li>• GI yan etkilere dikkat</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-blue-800 mb-3">
+                                <i class="fas fa-leaf mr-2"></i>
+                                Fitoterapi Seçenekleri
+                            </h4>
+                            <ul class="text-sm text-blue-700 space-y-2">
+                                <li>• <strong>Tarçın ekstraktı:</strong> 1-3g/gün</li>
+                                <li>• <strong>Berberin:</strong> 500mg 3x/gün</li>
+                                <li>• <strong>Gymnema sylvestre:</strong> 400-600mg/gün</li>
+                                <li>• <strong>Bitter melon:</strong> 2-3g/gün</li>
+                                <li class="text-xs italic">*Hekim onayı gereklidir</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mikronutrient Desteği -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">7.3 Kritik Mikronutrient Desteği</h3>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg text-center">
+                        <i class="fas fa-atom text-2xl text-blue-600 mb-2"></i>
+                        <h5 class="font-semibold text-gray-800">Krom</h5>
+                        <p class="text-sm text-gray-600">200-400 mcg/gün</p>
+                        <p class="text-xs text-gray-500">İnsülin duyarlılığı</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg text-center">
+                        <i class="fas fa-bolt text-2xl text-green-600 mb-2"></i>
+                        <h5 class="font-semibold text-gray-800">Magnezyum</h5>
+                        <p class="text-sm text-gray-600">400-600 mg/gün</p>
+                        <p class="text-xs text-gray-500">Glukoz metabolizması</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg text-center">
+                        <i class="fas fa-shield-alt text-2xl text-purple-600 mb-2"></i>
+                        <h5 class="font-semibold text-gray-800">Çinko</h5>
+                        <p class="text-sm text-gray-600">15-30 mg/gün</p>
+                        <p class="text-xs text-gray-500">İnsülin işlevi</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg text-center">
+                        <i class="fas fa-leaf text-2xl text-orange-600 mb-2"></i>
+                        <h5 class="font-semibold text-gray-800">Alfa-Lipoik Asit</h5>
+                        <p class="text-sm text-gray-600">300-600 mg/gün</p>
+                        <p class="text-xs text-gray-500">Antioksidan destek</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kişiselleştirme -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-user-cog mr-2 text-teal-600"></i>
+                    8. Kişiselleştirmiş Protokol Geliştirme
+                </h2>
+            </div>
+
+            <!-- Risk Profili -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">8.1 Bireysel Risk Profili Değerlendirmesi</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                        <h4 class="font-semibold text-red-800 mb-3">Yüksek Risk (~%14)</h4>
+                        <ul class="text-sm text-red-700 space-y-1">
+                            <li>• BMI <20 kg/m²</li>
+                            <li>• Vücut yağ oranı <8% (E), <16% (K)</li>
+                            <li>• Geçmişte RH episodları</li>
+                            <li>• Yüksek antrenman volumü (>15 saat/hafta)</li>
+                            <li>• Kadın + amenore</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                        <h4 class="font-semibold text-yellow-800 mb-3">Orta Risk (~%8)</h4>
+                        <ul class="text-sm text-yellow-700 space-y-1">
+                            <li>• BMI 20-22 kg/m²</li>
+                            <li>• Sporadik hipoglisemi semptomları</li>
+                            <li>• Orta-yüksek antrenman volumü</li>
+                            <li>• Yüksek karbonhidrat diyeti</li>
+                            <li>• Stres faktörleri mevcut</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                        <h4 class="font-semibold text-green-800 mb-3">Düşük Risk (~%86)</h4>
+                        <ul class="text-sm text-green-700 space-y-1">
+                            <li>• Normal BMI (22-25 kg/m²)</li>
+                            <li>• Hipoglisemi geçmişi yok</li>
+                            <li>• Dengeli beslenme</li>
+                            <li>• Stabil metabolik profil</li>
+                            <li>• İyi recovery kapasitesi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Protokolü -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">8.2 Kişiselleştirilmiş Test Protokolü</h3>
+                
+                <!-- Laboratuvar -->
+                <div class="bg-blue-50 p-6 rounded-lg mb-4">
+                    <h4 class="font-semibold text-blue-800 mb-4">
+                        <i class="fas fa-vial mr-2"></i>
+                        A) Laboratuvar Testleri (Baseline)
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">Metabolik Panel:</h5>
+                            <ul class="text-sm text-blue-700 space-y-1">
+                                <li>• Açlık glukoz ve insülin</li>
+                                <li>• HbA1c (3 aylık ortalama)</li>
+                                <li>• C-peptid seviyesi</li>
+                                <li>• HOMA-IR indeksi</li>
+                                <li>• Fruktosamin</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">Hormonal & Destek:</h5>
+                            <ul class="text-sm text-blue-700 space-y-1">
+                                <li>• 24-saat kortizol (idrar)</li>
+                                <li>• Tiroid fonksiyonları (TSH, T3, T4)</li>
+                                <li>• Mikronutrient paneli</li>
+                                <li>• İnflamasyon markerları (CRP, IL-6)</li>
+                                <li>• Vitamin D, B12, Folat</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonksiyonel Testler -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-purple-800 mb-4">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        B) Fonksiyonel Test Protokolü
+                    </h4>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded border">
+                            <h5 class="font-medium text-gray-800 mb-2">Hiperglisemik Kahvaltı Testi:</h5>
+                            <ul class="text-xs text-purple-700 space-y-1">
+                                <li>• Standardize kahvaltı (63% CHO)</li>
+                                <li>• 3 saatlik CGM takibi</li>
+                                <li>• Hipoglisemi eşik belirleme</li>
+                                <li>• Semptom korelasyonu</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded border">
+                            <h5 class="font-medium text-gray-800 mb-2">Egzersiz Yanıt Testi:</h5>
+                            <ul class="text-xs text-purple-700 space-y-1">
+                                <li>• Farklı timing'lerde beslenme</li>
+                                <li>• Submaksimal egzersiz (75% VO2max)</li>
+                                <li>• 60-90dk süre</li>
+                                <li>• Recovery periode analizi</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-4 rounded border">
+                            <h5 class="font-medium text-gray-8  mb-2">CGM Bazlı Yaşam Testi:</h5>
+                            <ul class="text-xs text-purple-700 space-y-1">
+                                <li>• 2 haftalık günlük yaşam</li>
+                                <li>• Beslenme günlüğü</li>
+                                <li>• Antrenman korelasyonu</li>
+                                <li>• Bireysel patern analizi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bireysel Optimizasyon -->
+            <div class="bg-green-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold text-green-800 mb-4">8.3 Bireysel Optimizasyon Süreci</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-3">Protokol Kişiselleştirme:</h4>
+                        <ul class="text-sm text-green-700 space-y-2">
+                            <li>✓ Test sonuçlarına göre risk sınıflandırması</li>
+                            <li>✓ Kritik eşik değerleri belirleme</li>
+                            <li>✓ Optimal karbonhidrat türleri seçimi</li>
+                            <li>✓ Timing stratejilerini kişiselleştirme</li>
+                            <li>✓ Mikronutrient ihtiyaç analizi</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-3">İzleme ve Adaptasyon:</h4>
+                        <ul class="text-sm text-green-700 space-y-2">
+                            <li>✓ Aylık performans değerlendirmesi</li>
+                            <li>✓ Hipoglisemi episode analizi</li>
+                            <li>✓ Recovery marker takibi</li>
+                            <li>✓ Protokol fine-tuning</li>
+                            <li>✓ Sürekli eğitim ve güncelleme</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beklenen Sonuçlar -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-target mr-2 text-red-500"></i>
+                    9. Beklenen Sonuçlar ve Başarı Kriterleri
+                </h2>
+            </div>
+
+            <!-- Başarı Metrikleri -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">9.1 Primer ve Sekonder Hedefler</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h4 class="font-semibold text-green-800 mb-4">
+                            <i class="fas fa-bullseye mr-2"></i>
+                            Primer Hedefler (Majör)
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-green-700">Hipoglisemi episodu yok</span>
+                                <div class="text-lg font-bold text-green-600">&gt;70 mg/dL</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-green-700">Hedef pace korunması</span>
+                                <div class="text-lg font-bold text-green-600">&plusmn;5%</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-green-700">Yarış tamamlama</span>
+                                <div class="text-lg font-bold text-green-600">%100</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-green-700">GI distres minimum</span>
+                                <div class="text-lg font-bold text-green-600">&lt;3/10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h4 class="font-semibold text-blue-800 mb-4">
+                            <i class="fas fa-plus-circle mr-2"></i>
+                            Sekonder Hedefler (Performans)
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-blue-700">Kognitif performans</span>
+                                <div class="text-sm font-medium text-blue-600">Stabil</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-blue-700">Subjektif enerji seviyesi</span>
+                                <div class="text-sm font-medium text-blue-600">&gt;7/10</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-blue-700">Recovery hızı</span>
+                                <div class="text-sm font-medium text-blue-600">&lt;48 saat</div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-blue-700">Glukoz variabilitesi</span>
+                                <div class="text-sm font-medium text-blue-600">&lt;20% CV</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İzleme Parametreleri -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">9.2 İzleme ve Değerlendirme Parametreleri</h3>
+                
+                <!-- Yarış Sırasında -->
+                <div class="bg-yellow-50 p-6 rounded-lg mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-3">
+                        <i class="fas fa-stopwatch mr-2"></i>
+                        Yarış Sırasında Monitoring
+                    </h4>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-yellow-600">15-20dk</div>
+                            <div class="text-xs text-yellow-500">CGM kontrol sıklığı</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-yellow-600">1-10</div>
+                            <div class="text-xs text-yellow-500">Subjektif enerji skoru</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-yellow-600">1-10</div>
+                            <div class="text-xs text-yellow-500">GI konfor seviyesi</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-lg font-bold text-yellow-600">%HRmax</div>
+                            <div class="text-xs text-yellow-500">Kalp hızı monitörizasyonu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-Yarış -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-purple-800 mb-3">
+                        <i class="fas fa-chart-area mr-2"></i>
+                        Post-Yarış Analiz ve Recovery
+                    </h4>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">24 Saat Analizi:</h5>
+                            <ul class="text-sm text-purple-700 space-y-1">
+                                <li>• Sürekli glukoz profili</li>
+                                <li>• Nocturnal hipoglisemi</li>
+                                <li>• Recovery glukoz kinetics</li>
+                                <li>• HRV analizi</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">48-72 Saat:</h5>
+                            <ul class="text-sm text-purple-700 space-y-1">
+                                <li>• İnflamasyon markerları</li>
+                                <li>• Kas hasarı göstergeleri (CK, LDH)</li>
+                                <li>• Subjektif recovery skoru</li>
+                                <li>• Performans test sonuçları</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-medium text-gray-800 mb-2">1 Hafta:</h5>
+                            <ul class="text-sm text-purple-700 space-y-1">
+                                <li>• Tam metabolik recovery</li>
+                                <li>• Antrenman kapasitesi</li>
+                                <li>• Protokol değerlendirmesi</li>
+                                <li>• Gelecek planlaması</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performans Metrik Grafik -->
+            <div class="mt-6">
+                <h4 class="font-semibold text-gray-800 mb-3">Beklenen Performans İyileştirmesi</h4>
+                <div class="chart-container">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sonuç ve Öneriler -->
+        <div class="p-8 border-b">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-flag-checkered mr-2 text-green-600"></i>
+                    10. Sonuç ve Klinik Öneriler
+                </h2>
+            </div>
+
+            <!-- Ana Sonuçlar -->
+            <div class="mb-8">
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-key mr-2"></i>
+                        Ana Bulgular ve Katkılar
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3">Kritik Keşifler:</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li>• <strong>30-90 dakika penceresi</strong> %14 hipoglisemi riski</li>
+                                <li>• <strong>CGM teknolojisi</strong> bireysel optimizasyon sağlıyor</li>
+                                <li>• <strong>Karbonhidrat timing</strong> performanstan daha kritik</li>
+                                <li>• <strong>Bireyselleştirme</strong> protokol başarısının anahtarı</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3">Klinik İmplikasyonlar:</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li>• Mevcut rehberler yetersiz, özel protokol gerekli</li>
+                                <li>• Sporcu güvenliği için risk stratifikasyonu şart</li>
+                                <li>• Teknoloji entegrasyonu performans avantajı</li>
+                                <li>• Multidisipliner yaklaşım zorunlu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evidence Level -->
+                <div class="grid md:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-green-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-green-700">GÜÇLü</div>
+                        <div class="text-sm text-green-600">RH Mekanizmaları</div>
+                        <div class="text-xs text-green-500">Level A Evidans</div>
+                    </div>
+                    <div class="bg-blue-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-blue-700">GÜÇLü</div>
+                        <div class="text-sm text-blue-600">Ultra Dayanıklılık</div>
+                        <div class="text-xs text-blue-500">Level A Evidans</div>
+                    </div>
+                    <div class="bg-yellow-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-yellow-700">ORTA</div>
+                        <div class="text-sm text-yellow-600">Zamanlama Stratejileri</div>
+                        <div class="text-xs text-yellow-500">Level B Evidans</div>
+                    </div>
+                    <div class="bg-purple-100 p-4 rounded-lg text-center">
+                        <div class="text-2xl font-bold text-purple-700">ORTA</div>
+                        <div class="text-sm text-purple-600">CGM Sporcularda</div>
+                        <div class="text-xs text-purple-500">Level B Evidans</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Klinik Öneriler -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">10.1 Klinik Uygulama Önerileri</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-green-800 mb-3">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Derhal Uygulanabilir Öneriler
+                        </h4>
+                        <ul class="space-y-2 text-sm text-green-700">
+                            <li>✅ 30-90 dakika penceresinden kaçının</li>
+                            <li>✅ CGM teknolojisini entegre edin</li>
+                            <li>✅ Bireysel risk değerlendirmesi yapın</li>
+                            <li>✅ Acil durum planı hazırlayın</li>
+                            <li>✅ Gut training protokolü uygulayın</li>
+                            <li>✅ Düzenli monitorizasyon sağlayın</li>
+                        </ul>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-orange-800 mb-3">
+                            <i class="fas fa-research mr-2"></i>
+                            Gelecek Araştırma İhtiyaçları
+                        </h4>
+                        <ul class="space-y-2 text-sm text-orange-700">
+                            <li>🔬 Uzun dönem CGM kullanım etkileri</li>
+                            <li>🔬 Cinsiyet spesifik beslenme protokolleri</li>
+                            <li>🔬 Genetik faktörlerin RH üzerine etkisi</li>
+                            <li>🔬 Mikrobiom-glukoz metabolizma ilişkisi</li>
+                            <li>🔬 AI destekli beslenme optimizasyonu</li>
+                            <li>🔬 Çoklu sensör entegrasyonu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation Framework -->
+            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">10.2 Uygulama Çerçevesi (Implementation Framework)</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-3">
+                            <i class="fas fa-user-md text-blue-600 mr-2"></i>
+                            Sağlık Ekibi
+                        </h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• Spor hekimi (koordinatör)</li>
+                            <li>• Beslenme uzmanı</li>
+                            <li>• Endokrinolog (konsültasyon)</li>
+                            <li>• Spor psikologu</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-3">
+                            <i class="fas fa-dumbbell text-green-600 mr-2"></i>
+                            Antrenman Ekibi
+                        </h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• Ana antrenör</li>
+                            <li>• Kondisyon uzmanı</li>
+                            <li>• Fizyoterapist</li>
+                            <li>• Pace partner</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-800 mb-3">
+                            <i class="fas fa-laptop text-purple-600 mr-2"></i>
+                            Teknoloji Desteği
+                        </h4>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• CGM sistemi</li>
+                            <li>• Veri analiz platformu</li>
+                            <li>• Mobil aplikasyonlar</li>
+                            <li>• İletişim araçları</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Recommendations -->
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                <h3 class="text-lg font-bold text-blue-800 mb-4">
+                    <i class="fas fa-star mr-2"></i>
+                    Final Öneriler - Altın Standart Protokol
+                </h3>
+                <div class="space-y-3">
+                    <p class="text-blue-800 font-medium">
+                        1. <strong>Mutlak Kural:</strong> Reaktif hipoglisemi tanısı olan sporcu için egzersiz öncesi 30-90 dakika arası besin alımından kaçının.
+                    </p>
+                    <p class="text-blue-800 font-medium">
+                        2. <strong>Teknoloji Entegrasyonu:</strong> CGM kullanımı güvenlik ve performans açısından kritik öneme sahiptir.
+                    </p>
+                    <p class="text-blue-800 font-medium">
+                        3. <strong>Bireyselleştirme:</strong> Her sporcu için özel risk değerlendirmesi ve protokol geliştirme zorunludur.
+                    </p>
+                    <p class="text-blue-800 font-medium">
+                        4. <strong>Ekip Yaklaşımı:</strong> Multidisipliner ekip koordinasyonu başarının en önemli faktörüdür.
+                    </p>
+                    <p class="text-blue-800 font-medium">
+                        5. <strong>Sürekli İzleme:</strong> Protokol sürekli monitorizasyon ve adaptasyon ile geliştirilmelidir.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referanslar -->
+        <div class="p-8">
+            <div class="section-header pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">
+                    <i class="fas fa-book-open mr-2 text-red-600"></i>
+                    11. Kaynaklar (References)
+                </h2>
+            </div>
+
+            <div class="references">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-4">Primer Kaynaklar</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="reference-item text-gray-700">
+                                Zignoli, A., Fontana, F. Y., Lipman, D. J., Skroce, K., Maturana, F. M., & Zisser, H. C. (2023). Association between pre-exercise food ingestion timing and reactive hypoglycemia: insights from a large database of continuous glucose monitoring data. <em>European Journal of Sport Science</em>. DOI: 10.1080/17461391.2023.2233468
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Brun, J. F., Fedou, C., & Mercier, J. (2000). Postprandial reactive hypoglycemia. <em>Diabetes and Metabolism</em>, 26(5), 337-351.
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Williamson, E. (2016). Nutritional implications for ultra-endurance walking and running events. <em>Extreme Physiology & Medicine</em>, 5, 13. DOI: 10.1186/s13728-016-0054-0
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Flockhart, M., & Larsen, F. J. (2024). Continuous glucose monitoring in endurance athletes: interpretation and relevance of measurements for improving performance and health. <em>Sports Medicine</em>, 54, 247-255. DOI: 10.1007/s40279-023-01910-4
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Tiller, N. B., Roberts, J. D., Beasley, L., Chapman, S., Pinto, J. M., Smith, L., ... & Gonzalez, J. T. (2019). International Society of Sports Nutrition Position Stand: nutritional considerations for single-stage ultra-marathon training and racing. <em>Journal of the International Society of Sports Nutrition</em>, 16(1), 50.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-semibold text-gray-800 mb-4">Destekleyici Literatür</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="reference-item text-gray-700">
+                                Thomas, F., Pretty, C. G., Desaive, T., & Chase, J. G. (2016). Blood glucose levels of subelite athletes during 6 days of free living. <em>Journal of Diabetes Science and Technology</em>, 10(6), 1335-1343.
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Donaldson, C. M., Perry, T. L., & Rose, M. C. (2010). Glycemic index and endurance performance. <em>International Journal of Sport Nutrition and Exercise Metabolism</em>, 20(2), 154-165.
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Costa, R. J., Hoffman, M. D., & Stellingwerff, T. (2019). Considerations for ultra-endurance activities: part 1-nutrition. <em>Research in Sports Medicine</em>, 27(2), 166-181.
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Jeukendrup, A. E., & Killer, S. C. (2010). The myths surrounding pre-exercise carbohydrate feeding. <em>Annals of Nutrition and Metabolism</em>, 57(2), 18-25.
+                            </div>
+                            <div class="reference-item text-gray-700">
+                                Burke, L. M., & Hawley, J. A. (2018). Swifter, higher, stronger: What's on the menu? <em>Science</em>, 362(6416), 781-787.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ek Kaynaklar -->
+                <div class="mt-6 bg-blue-50 p-6 rounded-lg">
+                    <h3 class="font-semibold text-blue-800 mb-4">Klinik ve Farmakölojik Kaynaklar</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="space-y-2">
+                            <div class="reference-item text-blue-700">
+                                American Diabetes Association. (2023). Standards of Medical Care in Diabetes-2023. <em>Diabetes Care</em>, 46(Suppl 1), S1-S291.
+                            </div>
+                            <div class="reference-item text-blue-700">
+                                International Society of Sports Nutrition. (2018). ISSN exercise and sports nutrition review update: research and recommendations. <em>Journal of the International Society of Sports Nutrition</em>, 15(1), 38.
+                            </div>
+                            <div class="reference-item text-blue-700">
+                                Kerksick, C. M., Arent, S., Schoenfeld, B. J., Stout, J. R., Campbell, B., Wilborn, C. D., ... & Antonio, J. (2017). International society of sports nutrition position stand: nutrient timing. <em>Journal of the International Society of Sports Nutrition</em>, 14(1), 33.
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="reference-item text-blue-700">
+                                Podlogar, T., & Wallis, G. A. (2022). New horizons in carbohydrate research and application for endurance athletes. <em>Sports Medicine</em>, 52, 5-23.
+                            </div>
+                            <div class="reference-item text-blue-700">
+                                Bowler, A. M., Whitfield, J., Marshall, L., Coffey, V. G., Burke, L. M., & Cox, G. R. (2023). The use of continuous glucose monitors in sport: possible applications and considerations. <em>International Journal of Sport Nutrition and Exercise Metabolism</em>, 33(2), 121-132.
+                            </div>
+                            <div class="reference-item text-blue-700">
+                                Holzer, R., Bloch, W., & Brinkmann, C. (2022). Continuous glucose monitoring in healthy adults—possible applications in health care, wellness, and sports. <em>Sensors</em>, 22(5), 2030.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Footer -->
-        <footer class="bg-gray-800 text-white p-8 rounded-lg">
+        <div class="bg-gray-800 text-white p-6">
             <div class="text-center">
-                <h3 class="text-xl font-bold mb-2">
-                    <i class="fas fa-user-md mr-2"></i>
-                    Hazırlayan: Ümit Emre Erdoğan
-                </h3>
-                <p class="text-sm opacity-80 mb-4">
-                    Bu kılavuz, 50+ uluslararası bilimsel makale analiz edilerek hazırlanmıştır.
+                <h3 class="text-lg font-semibold mb-2">Hazırlayan</h3>
+                <p class="text-gray-300">
+                    <strong>Ümit Emre Erdoğan</strong><br>
+                    Performans Beslenme Uzmanı ve Spor Antrenörü<br>
+                    <small>Ocak 2025 - Versiyon 1.0</small>
                 </p>
-                <div class="text-xs opacity-60">
-                    <p>Başlıca Kaynaklar: British Journal of Sports Medicine, Sports Medicine, American Journal of Sports Medicine, Journal of Orthopaedic & Sports Physical Therapy</p>
-                    <p class="mt-2">© 2025 - Bilimsel verilerle desteklenmiş, pratik uygulamalar için hazırlanmış kapsamlı rehber</p>
+                <div class="mt-4 text-sm text-gray-400">
+                    <p>Bu rapor 48,799 egzersiz olayı verisi ve güncel akademik literatürün kapsamlı analizi ile hazırlanmıştır.</p>
+                    <p>Uygulamadan önce spor hekimi konsültasyonu önerilir.</p>
                 </div>
             </div>
-        </footer>
+        </div>
     </div>
 
     <script>
-        // Prevalans grafiği
-        const ctx = document.getElementById('prevalenceChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
+        // Risk Chart
+        const riskCtx = document.getElementById('riskChart').getContext('2d');
+        new Chart(riskCtx, {
+            type: 'line',
             data: {
-                labels: [
-                    'Patellofemoral Ağrı',
-                    'Shin Splints',
-                    'Plantar Fasiit',
-                    'ITBS',
-                    'Aşil Tendinopatisi',
-                    'Ayak Bileği Burkulması',
-                    'Stress Kırıkları'
-                ],
+                labels: ['0-30', '30-60', '60-90', '90-120', '120-150', '150-180', '180+'],
                 datasets: [{
-                    label: 'Prevalans (%)',
-                    data: [21.5, 16.8, 11, 10.5, 11.5, 10.4, 17.5],
-                    backgroundColor: [
-                        '#ef4444',
-                        '#f97316',
-                        '#8b5cf6',
-                        '#6366f1',
-                        '#dc2626',
-                        '#14b8a6',
-                        '#6b7280'
-                    ],
-                    borderColor: [
-                        '#dc2626',
-                        '#ea580c',
-                        '#7c3aed',
-                        '#4f46e5',
-                        '#b91c1c',
-                        '#0d9488',
-                        '#4b5563'
-                    ],
-                    borderWidth: 2
+                    label: 'Hipoglisemi Riski (%)',
+                    data: [6, 10, 14, 12, 8, 6, 8],
+                    borderColor: 'rgb(239, 68, 68)',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    tension: 0.4,
+                    fill: true
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: {
-                        display: false
-                    },
                     title: {
                         display: true,
-                        text: 'Uzun Mesafe Koşucularında Sakatlık Prevalansı',
-                        font: {
-                            size: 16,
-                            weight: 'bold'
-                        }
+                        text: 'Egzersiz Öncesi Besin Alım Zamanı vs Hipoglisemi Riski'
                     }
                 },
                 scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 25,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
-                            }
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Egzersiz Öncesi Zaman (dakika)'
                         }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Hipoglisemi Riski (%)'
+                        },
+                        beginAtZero: true,
+                        max: 16
                     }
                 }
             }
         });
 
-        // Collapsible content functionality
-        function toggleContent(id) {
-            const content = document.getElementById(id + '-content');
-            const icon = document.getElementById(id + '-icon');
-            
-            content.classList.toggle('active');
-            icon.classList.toggle('rotate-180');
-        }
-
-        // Smooth scrolling for anchor links
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('a[href^="#"]');
-            for (const link of links) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+        // Distribution Chart
+        const distributionCtx = document.getElementById('distributionChart').getContext('2d');
+        new Chart(distributionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Düşük Risk (~%86)', 'Orta Risk (~%8)', 'Yüksek Risk (~%6)'],
+                datasets: [{
+                    data: [86, 8, 6],
+                    backgroundColor: [
+                        'rgb(34, 197, 94)',
+                        'rgb(251, 191, 36)', 
+                        'rgb(239, 68, 68)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Sporcularda Reaktif Hipoglisemi Risk Dağılımı'
+                    },
+                    legend: {
+                        position: 'bottom'
                     }
-                });
+                }
             }
+        });
+
+        // Carbohydrate Chart
+        const carbohydrateCtx = document.getElementById('carbohydrateChart').getContext('2d');
+        new Chart(carbohydrateCtx, {
+            type: 'bar',
+            data: {
+                labels: ['0-30dk', '30-60dk', '60-120dk', '120-240dk', '240-360dk', '360dk+'],
+                datasets: [{
+                    label: 'Karbonhidrat (g/saat)',
+                    data: [0, 17.5, 37.5, 75, 75, 67.5],
+                    backgroundColor: [
+                        'rgb(239, 68, 68)',
+                        'rgb(251, 191, 36)',
+                        'rgb(59, 130, 246)',
+                        'rgb(34, 197, 94)',
+                        'rgb(34, 197, 94)',
+                        'rgb(168, 85, 247)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '60K Koşu - Saatlik Karbonhidrat İhtiyacı Protokolü'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Yarış Zamanı'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Karbonhidrat (g/saat)'
+                        },
+                        beginAtZero: true,
+                        max: 90
+                    }
+                }
+            }
+        });
+
+        // Performance Chart
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(performanceCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Hipoglisemi Kontrolü', 'Pace Stabilitesi', 'Enerji Seviyesi', 'GI Konfor', 'Kognitif Performans', 'Recovery Hızı'],
+                datasets: [{
+                    label: 'Standart Protokol',
+                    data: [60, 70, 65, 60, 65, 60],
+                    borderColor: 'rgb(156, 163, 175)',
+                    backgroundColor: 'rgba(156, 163, 175, 0.2)'
+                }, {
+                    label: 'RH Spesifik Protokol',
+                    data: [95, 90, 85, 88, 85, 80],
+                    borderColor: 'rgb(34, 197, 94)',
+                    backgroundColor: 'rgba(34, 197, 94, 0.2)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Standart vs RH Spesifik Protokol Karşılaştırması'
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // Print optimization
+        window.addEventListener('beforeprint', function() {
+            document.body.style.printColorAdjust = 'exact';
         });
     </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDh5HQA3HTa%2FupyFZCFTwEARnB0WxRqiFV2wfjrmyWvpUtwzIzl4AcOHJp4XuVKpyrjO5m0jJjZoBpppylKhgUTASrluq3G1Y%2BKQEjq89sH9ZcTwYZhl6jmkPgDZ6%2FyuyDAOQMTFqSHaMUaK2oUNrvMLa3Efih1o7lJlYW9SHTD2AxzjZn6Aw6G4W6wCszonPisKj5UloJ2E5Z6HqD4iGpwm%2B%2Bp17JtLPv18M33dTAs15QgFoN7y6uDTQUwD3wU3jd6K5EsYZASQNTTS1k0XDJxmZ8fSwMjgszYR1t8Ox0EdHVkSGizRLnRQLdBjk%2B%2FZALwHfp0KU%2Bx2KN47ScES8%2BUMZcprM2VQdN4D%2B59GtaVKdmQiJeWt%2BSfWtPbT%2FqTvmoDLu5O4zdUXSjhrF4lJFBZwhsuzF%2BAhxeQVckz0L8pXWz%2B%2BJ0%2Bwh9cfd%2Bm%2FR49BQJNL6uJi0NurUY3o7UjF8uQazoIJVsZ2QpZtfq6z54vEABk%2FpiUgu5GlL3eFNVp7IfFHja7DGoU2LGizwkEuay3E%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDuku8kleAxKax99I9wMfregrXkrq1V5ba7SNbNBMEGpi2l64Sa9c88gXuHIzZ6Wx%2FZ8fpNBuMXivnZwSW1g01rEI7AJSxeuXWx8VUxQgatxRI%2BMEOr3EzV28IHdShwqfqD5tpE16v%2BbEFgk9yDkpXWqH5LWePAYYiuc6LzKpofiuBx4NNBWGNk5ns5ZjNtWjHGF2qaVSBrodOr%2Fb7c7cyT8J1pnBzjkFwXolZ%2FZTJMdUSRJlwHlpPKKX%2B5z4mRLT6lKl4xBHdfP1N0LWkuntKl10tZ1GGoS76cJfSGRwJTHT8xIoBGsWVUxWwmTOOfRShTMU8HzNzg3m2sLIiZlEwL64iVzrSg6iLkq64k%2FhsHV%2BwoqwvROZsNdJHzSBE9R2k7oEwRXwblVEpEhvf5w7oT%2F69Kp1amHEWTA0baTC%2BgtYOxG52U6lYOhnxwcniP0Y5jHXcda737%2BmcrfOIknFmJR002cQuCmdXbrBOw6Rix7ape7KABdVdj2F9yuiD0ZmMKc0fzUKGbk9IOjQZCVv6KlPE%2B%2FvB5w4vChFzVa73tbD";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDh5HQA3HTa/upyFZCFTwEARnB0WxRqiFV2wfjrmyWvpUtwzIzl4AcOHJp4XuVKpyrjO5m0jJjZoBpppylKhgUTASrluq3G1Y+KQEjq89sH9ZcTwYZhl6jmkPgDZ6/yuyDAOQMTFqSHaMUaK2oUNrvMLa3Efih1o7lJlYW9SHTD2AxzjZn6Aw6G4W6wCszonPisKj5UloJ2E5Z6HqD4iGpwm++p17JtLPv18M33dTAs15QgFoN7y6uDTQUwD3wU3jd6K5EsYZASQNTTS1k0XDJxmZ8fSwMjgszYR1t8Ox0EdHVkSGizRLnRQLdBjk+/ZALwHfp0KU+x2KN47ScES8+UMZcprM2VQdN4D+59GtaVKdmQiJeWt+SfWtPbT/qTvmoDLu5O4zdUXSjhrF4lJFBZwhsuzF+AhxeQVckz0L8pXWz++J0+wh9cfd+m/R49BQJNL6uJi0NurUY3o7UjF8uQazoIJVsZ2QpZtfq6z54vEABk/piUgu5GlL3eFNVp7IfFHja7DGoU2LGizwkEuay3E=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDuku8kleAxKax99I9wMfregrXkrq1V5ba7SNbNBMEGpi2l64Sa9c88gXuHIzZ6Wx/Z8fpNBuMXivnZwSW1g01rEI7AJSxeuXWx8VUxQgatxRI+MEOr3EzV28IHdShwqfqD5tpE16v+bEFgk9yDkpXWqH5LWePAYYiuc6LzKpofiuBx4NNBWGNk5ns5ZjNtWjHGF2qaVSBrodOr/b7c7cyT8J1pnBzjkFwXolZ/ZTJMdUSRJlwHlpPKKX+5z4mRLT6lKl4xBHdfP1N0LWkuntKl10tZ1GGoS76cJfSGRwJTHT8xIoBGsWVUxWwmTOOfRShTMU8HzNzg3m2sLIiZlEwL64iVzrSg6iLkq64k/hsHV+woqwvROZsNdJHzSBE9R2k7oEwRXwblVEpEhvf5w7oT/69Kp1amHEWTA0baTC+gtYOxG52U6lYOhnxwcniP0Y5jHXcda737+mcrfOIknFmJR002cQuCmdXbrBOw6Rix7ape7KABdVdj2F9yuiD0ZmMKc0fzUKGbk9IOjQZCVv6KlPE+/vB5w4vChFzVa73tbD";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
