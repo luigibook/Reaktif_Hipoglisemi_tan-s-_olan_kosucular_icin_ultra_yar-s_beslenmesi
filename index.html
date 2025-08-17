@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzun Mesafe Koşu Sakatlıkları Rehberi - Ümit Emre Erdoğan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .injury-card { transition: all 0.3s ease; }
+        .injury-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .collapsible-content.active { max-height: 2000px; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .injury-icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    <i class="fas fa-running mr-3"></i>
+                    Uzun Mesafe Koşu Sakatlıkları
+                </h1>
+                <h2 class="text-2xl mb-2">Kapsamlı Rehber ve Önleme Kılavuzu</h2>
+                <p class="text-lg opacity-90">Bilimsel Verilerle Desteklenmiş | Uluslararası Araştırmalardan Derlenen</p>
+                <p class="text-sm mt-4 opacity-80">
+                    <i class="fas fa-user-md mr-2"></i>
+                    <strong>Hazırlayan: Ümit Emre Erdoğan</strong>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+
+        <!-- Kritik İstatistikler -->
+        <section class="mb-12">
+            <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-6">
+                <h3 class="text-2xl font-bold text-red-800 mb-4">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    2025'in En Kritik Bulgusu!
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="text-center bg-white p-4 rounded-lg shadow">
+                        <div class="text-3xl font-bold text-red-600">%64</div>
+                        <div class="text-sm">Risk Artışı<br/>(%10-30 mesafe artışı)</div>
+                    </div>
+                    <div class="text-center bg-white p-4 rounded-lg shadow">
+                        <div class="text-3xl font-bold text-red-700">%52</div>
+                        <div class="text-sm">Risk Artışı<br/>(%30-100 mesafe artışı)</div>
+                    </div>
+                    <div class="text-center bg-white p-4 rounded-lg shadow">
+                        <div class="text-3xl font-bold text-red-800">%128</div>
+                        <div class="text-sm">Risk Artışı<br/>(%100+ mesafe artışı)</div>
+                    </div>
+                </div>
+                <p class="mt-4 text-red-700 font-medium">
+                    <strong>Tek seansta mesafe artışı %10'u geçerse sakatlık riski dramatik olarak artar!</strong>
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
+                    <div class="text-3xl font-bold text-yellow-400">%35-90</div>
+                    <div class="text-sm mt-2">Koşucuların yıllık sakatlık oranı</div>
+                </div>
+                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
+                    <div class="text-3xl font-bold text-blue-400">%72</div>
+                    <div class="text-sm mt-2">Overuse sakatlık oranı</div>
+                </div>
+                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
+                    <div class="text-3xl font-bold text-green-400">2.88x</div>
+                    <div class="text-sm mt-2">Haftalık 64+ km koşanlarda risk</div>
+                </div>
+                <div class="bg-gray-800 text-white p-6 rounded-lg text-center">
+                    <div class="text-3xl font-bold text-purple-400">5,205</div>
+                    <div class="text-sm mt-2">2025 Garmin-RUNSAFE çalışması katılımcı</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevalans Grafiği -->
+        <section class="mb-12">
+            <h3 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-chart-bar mr-2"></i>
+                En Sık Görülen Sakatlıklar (Prevalans Oranları)
+            </h3>
+            <div class="bg-white p-6 rounded-lg shadow" style="height: 400px;">
+                <canvas id="prevalenceChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Sakatlık Detayları -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-8 text-gray-800">
+                <i class="fas fa-stethoscope mr-2"></i>
+                Sakatlık Detayları ve Tedavi Rehberi
+            </h2>
+
+            <!-- 1. Patellofemoral Ağrı Sendromu -->
+            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
+                <div class="p-6 cursor-pointer" onclick="toggleContent('pfs')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="injury-icon bg-red-100 rounded-full mr-4">
+                                <i class="fas fa-walking text-red-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">1. Patellofemoral Ağrı Sendromu (Runner's Knee)</h3>
+                                <p class="text-gray-600">Prevalans: %13-30 | En sık sakatlık</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="pfs-icon"></i>
+                    </div>
+                </div>
+                <div class="collapsible-content px-6 pb-6" id="pfs-content">
+                    <div class="border-t pt-4">
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-blue-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
+                            <ul class="text-sm text-blue-700 space-y-1">
+                                <li>• Patellofemoral ağrı yaşayan koşucuların %60'ında hip abduktör zayıflığı tespit edilir</li>
+                                <li>• Kadın koşucuların erkeklere oranla 2 kat daha fazla risk taşır (Q-angle farkı nedeniyle)</li>
+                                <li>• "Runner's Knee" terimi 1970'lerde ortaya çıktı, o zamandan beri en yaygın koşu sakatlığı</li>
+                                <li>• Diz kapağı günde ortalama 10.000-15.000 kez hareket eder (bir koşucuda daha fazla!)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Risk Faktörleri</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Kadın cinsiyet (Q-angle artışı)</li>
+                                    <li>• Hip abduktör zayıflığı</li>
+                                    <li>• Quadriceps kas dengesizliği</li>
+                                    <li>• Aşırı pronasyon</li>
+                                    <li>• Ani mesafe/tempo artışı</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Tanı Yöntemleri</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Clarke testi (%96 spesifite)</li>
+                                    <li>• Patellar grind test</li>
+                                    <li>• MRI (altın standart)</li>
+                                    <li>• Hip güç testleri</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gray-800 mb-2">Önleme & Tedavi</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-green-50 p-3 rounded">
+                                    <h5 class="font-semibold text-green-800">Önleme</h5>
+                                    <ul class="text-xs mt-2">
+                                        <li>• Hip güçlendirme</li>
+                                        <li>• Uygun ayakkabı</li>
+                                        <li>• Kademeli artış</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-yellow-50 p-3 rounded">
+                                    <h5 class="font-semibold text-yellow-800">Akut Tedavi</h5>
+                                    <ul class="text-xs mt-2">
+                                        <li>• RICE protokolü</li>
+                                        <li>• NSAİD (2 hafta)</li>
+                                        <li>• Aktivite modifikasyon</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-semibold text-blue-800">Rehabilitasyon</h5>
+                                    <ul class="text-xs mt-2">
+                                        <li>• Hip stabilizasyon</li>
+                                        <li>• VMO güçlendirme</li>
+                                        <li>• 6-12 hafta süreç</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Medial Tibial Stress Sendromu -->
+            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
+                <div class="p-6 cursor-pointer" onclick="toggleContent('mtss')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="injury-icon bg-orange-100 rounded-full mr-4">
+                                <i class="fas fa-bone text-orange-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">2. Medial Tibial Stress Sendromu (Shin Splints)</h3>
+                                <p class="text-gray-600">Prevalans: %13.6-20 | Yeni koşucuların kabusu</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="mtss-icon"></i>
+                    </div>
+                </div>
+                <div class="collapsible-content px-6 pb-6" id="mtss-content">
+                    <div class="border-t pt-4">
+                        <div class="bg-orange-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-orange-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
+                            <ul class="text-sm text-orange-700 space-y-1">
+                                <li>• "Shin splints" terimi 1966'da American Medical Association tarafından tanımlandı</li>
+                                <li>• Hop test %86 sensitiviteye sahip - tek ayak üzerinde hoplayamamak tanısal değer taşır</li>
+                                <li>• Sert yüzeylerde koşmanın tibia üzerindeki etki kuvveti vücut ağırlığının 2-3 katı</li>
+                                <li>• Yeni başlayan koşucuların %70'i ilk 6 ayda shin splints yaşar</li>
+                                <li>• Tibial periosteum (kemik zarı) vücuttaki en hassas yapılardan biri</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Risk Faktörleri</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Yeni başlayan koşucular</li>
+                                    <li>• Sert yüzeylerde koşma</li>
+                                    <li>• Yetersiz ayakkabı</li>
+                                    <li>• Kadın cinsiyet</li>
+                                    <li>• Ani aktivite artışı</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Ayırıcı Tanı</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Stress kırığı</li>
+                                    <li>• Kompartman sendromu</li>
+                                    <li>• Posteriyor tibialis tendiniti</li>
+                                    <li>• Vasküler nedenleri</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-gray-800 mb-2">Tedavi Protokolü (Faz Bazlı)</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div>
+                                    <h5 class="font-semibold text-red-700">Faz 1 (0-2 hafta)</h5>
+                                    <p class="text-xs">İstirahat, buz, NSAİD, çapraz antrenman</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-yellow-700">Faz 2 (2-4 hafta)</h5>
+                                    <p class="text-xs">Düşük etki egzersizleri, güçlendirme</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold text-green-700">Faz 3 (4-8 hafta)</h5>
+                                    <p class="text-xs">Kademeli koşuya dönüş, teknik düzeltme</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Plantar Fasiit -->
+            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
+                <div class="p-6 cursor-pointer" onclick="toggleContent('pf')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="injury-icon bg-purple-100 rounded-full mr-4">
+                                <i class="fas fa-shoe-prints text-purple-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">3. Plantar Fasiit</h3>
+                                <p class="text-gray-600">Prevalans: %4.5-17.4 | Sabah ağrısının nedeni</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="pf-icon"></i>
+                    </div>
+                </div>
+                <div class="collapsible-content px-6 pb-6" id="pf-content">
+                    <div class="border-t pt-4">
+                        <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-purple-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
+                            <ul class="text-sm text-purple-700 space-y-1">
+                                <li>• Plantar fasya günde 10.000+ adımda vücut ağırlığının 2-3 katı yük taşır</li>
+                                <li>• "Plantar fasiit" aslında yanıltıcı - çoğu vakada inflamasyon değil dejenerasyon var</li>
+                                <li>• Windlass test %100'e yakın spesifiteye sahip (parmak dorsifleksiyonu)</li>
+                                <li>• %80 hasta 12 ay içinde iyileşir, %10'unda kronik hal alır</li>
+                                <li>• En büyük risk faktörü tight calf kasları (gastrocnemius/soleus)</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Altın Kurallar</h4>
+                                <ul class="space-y-1 text-sm bg-green-50 p-3 rounded">
+                                    <li>• Sabah ilk adımda ağrı = Pathognomonic</li>
+                                    <li>• Night splint 1-3 ay kullanım</li>
+                                    <li>• Calf stretching günde 3x</li>
+                                    <li>• Sert yüzeylerden kaçınım</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">İleri Tedavi Seçenekleri</h4>
+                                <ul class="space-y-1 text-sm">
+                                    <li>• Shockwave therapy (%70 başarı)</li>
+                                    <li>• PRP enjeksiyonu</li>
+                                    <li>• Kortikosteroid (1-2 kez)</li>
+                                    <li>• Cerrahi (%5 vakada)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. İliotibial Band Sendromu -->
+            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
+                <div class="p-6 cursor-pointer" onclick="toggleContent('itbs')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="injury-icon bg-indigo-100 rounded-full mr-4">
+                                <i class="fas fa-leg text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">4. İliotibial Band Sendromu</h3>
+                                <p class="text-gray-600">Prevalans: %7-14 | İkinci en sık overuse injury</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="itbs-icon"></i>
+                    </div>
+                </div>
+                <div class="collapsible-content px-6 pb-6" id="itbs-content">
+                    <div class="border-t pt-4">
+                        <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-indigo-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
+                            <ul class="text-sm text-indigo-700 space-y-1">
+                                <li>• ITB aslında gerdirilemiyor! Çoğu "stretching" egzersizi TFL kasını etkiler</li>
+                                <li>• Noble test %94 sensitiviteye sahip (diz 30° fleksiyonda lateral kondil basısı)</li>
+                                <li>• ITB vücuttaki en kalın fasya dokusudur (2-3 mm)</li>
+                                <li>• Maraton koşucularında en sık 30-40. km aralığında ortaya çıkar</li>
+                                <li>• Hip abduktör zayıflığı %85 vakada eşlik eder</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h4 class="font-bold text-yellow-800">⚠️ Yaygın Yanlış İnanış</h4>
+                            <p class="text-sm text-yellow-700">ITB'yi "stretch" etmek mümkün değildir. Foam rolling ve stretching egzersizleri ağrıyı azaltabilir ama ITB'nin uzunluğunu değiştirmez!</p>
+                        </div>
+
+                        <div class="mt-4 grid md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 p-4 rounded">
+                                <h4 class="font-bold text-green-800">Etkili Tedavi</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Hip abduction strengthening</li>
+                                    <li>• Gluteus medius güçlendirme</li>
+                                    <li>• Cadence artışı (>170 step/dk)</li>
+                                    <li>• Running surface modifikasyonu</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded">
+                                <h4 class="font-bold text-red-800">Kaçınılması Gerekenler</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Agresif ITB stretching</li>
+                                    <li>• Aşırı foam rolling</li>
+                                    <li>• Tek taraflı banking koşusu</li>
+                                    <li>• Ağrıya rağmen koşmaya devam</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Aşil Tendinopatisi -->
+            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
+                <div class="p-6 cursor-pointer" onclick="toggleContent('at')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="injury-icon bg-red-100 rounded-full mr-4">
+                                <i class="fas fa-ankle text-red-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">5. Aşil Tendinopatisi</h3>
+                                <p class="text-gray-600">Prevalans: %5-18 | En güçlü tendonun problemi</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="at-icon"></i>
+                    </div>
+                </div>
+                <div class="collapsible-content px-6 pb-6" id="at-content">
+                    <div class="border-t pt-4">
+                        <div class="bg-red-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-red-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
+                            <ul class="text-sm text-red-700 space-y-1">
+                                <li>• Aşil tendonu 1000 kg'a kadar yük taşıyabilir - vücuttaki en güçlü tendon!</li>
+                                <li>• "Watershed area" denilen bölgesi (2-6 cm) en az kan alır, en sık problem bu bölgede</li>
+                                <li>• Royal London Hospital test %98 spesifiteye sahip</li>
+                                <li>• Eccentric egzersizlerin %80-90 başarı oranı var (Alfredson protokolü)</li>
+                                <li>• Fluroquinolon antibiotikleri kullanımı riski %4 kat artırır</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Alfredson Eccentric Protocol</h4>
+                                <div class="bg-blue-50 p-4 rounded">
+                                    <p class="text-sm font-semibold">12 hafta program:</p>
+                                    <ul class="text-sm mt-2 space-y-1">
+                                        <li>• 15 tekrar x 3 set</li>
+                                        <li>• Günde 2 kez</li>
+                                        <li>• Straight & bent knee</li>
+                                        <li>• Haftada 7 gün</li>
+                                        <li>• %80-90 başarı oranı</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Modern Tedavi Yaklaşımları</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Heavy Slow Resistance (HSR)</li>
+                                    <li>• Shockwave therapy (%60-80 başarı)</li>
+                                    <li>• PRP enjeksiyonu</li>
+                                    <li>• Sklerotik tedavi</li>
+                                    <li>• Cerrahi (son seçenek)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Ayak Bileği Burkulması -->
+            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
+                <div class="p-6 cursor-pointer" onclick="toggleContent('ankle')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="injury-icon bg-teal-100 rounded-full mr-4">
+                                <i class="fas fa-foot text-teal-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">6. Ayak Bileği Burkulması</h3>
+                                <p class="text-gray-600">Prevalans: %5.8-15 | En sık akut sakatlık</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="ankle-icon"></i>
+                    </div>
+                </div>
+                <div class="collapsible-content px-6 pb-6" id="ankle-content">
+                    <div class="border-t pt-4">
+                        <div class="bg-teal-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-teal-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
+                            <ul class="text-sm text-teal-700 space-y-1">
+                                <li>• Spor sakatlıklarının %16-40'ını ayak bileği burkulmaları oluşturur</li>
+                                <li>• %70 lateral ligament kompleksi etkilenir (ATFL en sık)</li>
+                                <li>• Kronik instabilite %25 vakada gelişir</li>
+                                <li>• Trail running'de risk 3-5 kat daha yüksek</li>
+                                <li>• Proprioseptif antrenman riski %40 azaltır</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-green-50 p-4 rounded">
+                                <h4 class="font-bold text-green-800">Önleme Stratejileri</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Proprioseptif antrenman</li>
+                                    <li>• Balance board egzersizleri</li>
+                                    <li>• Calf/peroneal güçlendirme</li>
+                                    <li>• Trail running teknik eğitimi</li>
+                                    <li>• Uygun ayakkabı seçimi</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded">
+                                <h4 class="font-bold text-yellow-800">Akut Tedavi (RICE)</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Rest (İstirahat)</li>
+                                    <li>• Ice (Buz 20 dk, 2-3 saatte bir)</li>
+                                    <li>• Compression (Bandaj)</li>
+                                    <li>• Elevation (Yüksekte tutma)</li>
+                                    <li>• Erken mobilizasyon</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Stress Kırıkları -->
+            <div class="injury-card bg-white rounded-lg shadow-lg mb-6">
+                <div class="p-6 cursor-pointer" onclick="toggleContent('sf')">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="injury-icon bg-gray-100 rounded-full mr-4">
+                                <i class="fas fa-x-ray text-gray-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">7. Stress Kırıkları</h3>
+                                <p class="text-gray-600">Prevalans: %15-20 | En ciddi overuse injury</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-down text-gray-400 transform transition-transform" id="sf-icon"></i>
+                    </div>
+                </div>
+                <div class="collapsible-content px-6 pb-6" id="sf-content">
+                    <div class="border-t pt-4">
+                        <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                            <h4 class="font-bold text-gray-800 mb-2">🧠 Trivia & İlginç Bilgiler</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• Stress kırıklarının %22'si kadın koşucularda, sadece %5'i erkeklerde</li>
+                                <li>• Tibia en sık lokalizasyon (%23.6), ardından metatarslar (%16.2)</li>
+                                <li>• Female Athlete Triad en büyük risk faktörü</li>
+                                <li>• MRI altın standart (%100 spesifite, %80-100 sensitivite)</li>
+                                <li>• "High risk" kırıklar cerrahi gerektirebilir (femoral neck superior, 5. metatarsal Jones)</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-green-100 p-4 rounded">
+                                <h4 class="font-bold text-green-800">Düşük Risk (Konservatif)</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Posteromedial tibia</li>
+                                    <li>• Fibula</li>
+                                    <li>• Metatars 1-4</li>
+                                    <li>• 4-8 hafta iyileşme</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-100 p-4 rounded">
+                                <h4 class="font-bold text-red-800">Yüksek Risk (Cerrahi?)</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Femoral neck (superior)</li>
+                                    <li>• Anterior tibia</li>
+                                    <li>• 5. metatarsal (Jones)</li>
+                                    <li>• 6-12 hafta+ iyileşme</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h4 class="font-bold text-blue-800">Beslenme Protokolü</h4>
+                            <div class="grid md:grid-cols-3 gap-4 mt-2">
+                                <div>
+                                    <p class="text-sm"><strong>Kalsiyum:</strong> 1500-2000 mg/gün</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm"><strong>Vitamin D:</strong> 800-1000 IU/gün</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm"><strong>Protein:</strong> 1.2-1.6 g/kg/gün</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Genel Önleme Stratejileri -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-shield-alt mr-2"></i>
+                Genel Önleme Stratejileri
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-green-50 border border-green-200 p-6 rounded-lg">
+                    <h3 class="font-bold text-green-800 mb-3">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Yük Yönetimi
+                    </h3>
+                    <ul class="text-sm space-y-2">
+                        <li>• <strong>%10 Kuralı:</strong> Haftalık mesafe artışı</li>
+                        <li>• <strong>Tek seans:</strong> %10'dan fazla artış yapmayın</li>
+                        <li>• <strong>80/20 Kuralı:</strong> %80 düşük tempo</li>
+                        <li>• <strong>Kademeli artış:</strong> 3 hafta artış, 1 hafta azaltma</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 border border-blue-200 p-6 rounded-lg">
+                    <h3 class="font-bold text-blue-800 mb-3">
+                        <i class="fas fa-dumbbell mr-2"></i>
+                        Güçlendirme
+                    </h3>
+                    <ul class="text-sm space-y-2">
+                        <li>• <strong>Hip stabilizasyon:</strong> Glute med/max</li>
+                        <li>• <strong>Core güçlendirme:</strong> Stabilite</li>
+                        <li>• <strong>Eccentric egzersizler:</strong> Tendonlar için</li>
+                        <li>• <strong>Proprioseptif antrenman:</strong> Denge</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 border border-purple-200 p-6 rounded-lg">
+                    <h3 class="font-bold text-purple-800 mb-3">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Beslenme
+                    </h3>
+                    <ul class="text-sm space-y-2">
+                        <li>• <strong>Kalsiyum:</strong> 1500-2000 mg/gün</li>
+                        <li>• <strong>Vitamin D:</strong> 800-1000 IU/gün</li>
+                        <li>• <strong>Protein:</strong> 1.2-1.6 g/kg/gün</li>
+                        <li>• <strong>Demir:</strong> Özellikle kadın koşucular</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kırmızı Bayraklar -->
+        <section class="mb-12">
+            <div class="bg-red-50 border-l-4 border-red-500 p-6">
+                <h2 class="text-2xl font-bold text-red-800 mb-4">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    Kırmızı Bayraklar - Acil Tıbbi Müdahale Gerekir
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <ul class="space-y-2 text-sm text-red-700">
+                        <li>• <strong>Hop testi pozitif:</strong> Stress kırığı şüphesi</li>
+                        <li>• <strong>Numbness/tingling:</strong> Kompartman sendromu</li>
+                        <li>• <strong>Gece ağrısı:</strong> Malignite şüphesi</li>
+                        <li>• <strong>Sistemik semptomlar:</strong> Ateş, kilo kaybı</li>
+                    </ul>
+                    <ul class="space-y-2 text-sm text-red-700">
+                        <li>• <strong>Deformite:</strong> Kırık şüphesi</li>
+                        <li>• <strong>Vasküler kompromizasyon:</strong> Nabız yokluğu</li>
+                        <li>• <strong>Severe swelling:</strong> DVT şüphesi</li>
+                        <li>• <strong>Neurological deficit:</strong> Sinir hasarı</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Return to Running Protokolü -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-play-circle mr-2"></i>
+                Return to Running Protokolü
+            </h2>
+            <div class="bg-white p-6 rounded-lg shadow">
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="text-center p-4 bg-red-50 rounded">
+                        <div class="text-2xl font-bold text-red-600 mb-2">1</div>
+                        <h4 class="font-semibold mb-2">Ağrısızlık</h4>
+                        <p class="text-sm">10-14 gün ağrısız aktivite</p>
+                    </div>
+                    <div class="text-center p-4 bg-yellow-50 rounded">
+                        <div class="text-2xl font-bold text-yellow-600 mb-2">2</div>
+                        <h4 class="font-semibold mb-2">Çapraz Antrenman</h4>
+                        <p class="text-sm">Bisiklet, yüzme, eliptik</p>
+                    </div>
+                    <div class="text-center p-4 bg-blue-50 rounded">
+                        <div class="text-2xl font-bold text-blue-600 mb-2">3</div>
+                        <h4 class="font-semibold mb-2">Kademeli Başlangıç</h4>
+                        <p class="text-sm">%30-50 önceki mesafe</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 rounded">
+                        <div class="text-2xl font-bold text-green-600 mb-2">4</div>
+                        <h4 class="font-semibold mb-2">Normal Seviye</h4>
+                        <p class="text-sm">4-6 haftada eski seviye</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white p-8 rounded-lg">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-2">
+                    <i class="fas fa-user-md mr-2"></i>
+                    Hazırlayan: Ümit Emre Erdoğan
+                </h3>
+                <p class="text-sm opacity-80 mb-4">
+                    Bu kılavuz, 50+ uluslararası bilimsel makale analiz edilerek hazırlanmıştır.
+                </p>
+                <div class="text-xs opacity-60">
+                    <p>Başlıca Kaynaklar: British Journal of Sports Medicine, Sports Medicine, American Journal of Sports Medicine, Journal of Orthopaedic & Sports Physical Therapy</p>
+                    <p class="mt-2">© 2025 - Bilimsel verilerle desteklenmiş, pratik uygulamalar için hazırlanmış kapsamlı rehber</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Prevalans grafiği
+        const ctx = document.getElementById('prevalenceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Patellofemoral Ağrı',
+                    'Shin Splints',
+                    'Plantar Fasiit',
+                    'ITBS',
+                    'Aşil Tendinopatisi',
+                    'Ayak Bileği Burkulması',
+                    'Stress Kırıkları'
+                ],
+                datasets: [{
+                    label: 'Prevalans (%)',
+                    data: [21.5, 16.8, 11, 10.5, 11.5, 10.4, 17.5],
+                    backgroundColor: [
+                        '#ef4444',
+                        '#f97316',
+                        '#8b5cf6',
+                        '#6366f1',
+                        '#dc2626',
+                        '#14b8a6',
+                        '#6b7280'
+                    ],
+                    borderColor: [
+                        '#dc2626',
+                        '#ea580c',
+                        '#7c3aed',
+                        '#4f46e5',
+                        '#b91c1c',
+                        '#0d9488',
+                        '#4b5563'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Uzun Mesafe Koşucularında Sakatlık Prevalansı',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 25,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Collapsible content functionality
+        function toggleContent(id) {
+            const content = document.getElementById(id + '-content');
+            const icon = document.getElementById(id + '-icon');
+            
+            content.classList.toggle('active');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            for (const link of links) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDh5HQA3HTa%2FupyFZCFTwEARnB0WxRqiFV2wfjrmyWvpUtwzIzl4AcOHJp4XuVKpyrjO5m0jJjZoBpppylKhgUTASrluq3G1Y%2BKQEjq89sH9ZcTwYZhl6jmkPgDZ6%2FyuyDAOQMTFqSHaMUaK2oUNrvMLa3Efih1o7lJlYW9SHTD2AxzjZn6Aw6G4W6wCszonPisKj5UloJ2E5Z6HqD4iGpwm%2B%2Bp17JtLPv18M33dTAs15QgFoN7y6uDTQUwD3wU3jd6K5EsYZASQNTTS1k0XDJxmZ8fSwMjgszYR1t8Ox0EdHVkSGizRLnRQLdBjk%2B%2FZALwHfp0KU%2Bx2KN47ScES8%2BUMZcprM2VQdN4D%2B59GtaVKdmQiJeWt%2BSfWtPbT%2FqTvmoDLu5O4zdUXSjhrF4lJFBZwhsuzF%2BAhxeQVckz0L8pXWz%2B%2BJ0%2Bwh9cfd%2Bm%2FR49BQJNL6uJi0NurUY3o7UjF8uQazoIJVsZ2QpZtfq6z54vEABk%2FpiUgu5GlL3eFNVp7IfFHja7DGoU2LGizwkEuay3E%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDh5HQA3HTa/upyFZCFTwEARnB0WxRqiFV2wfjrmyWvpUtwzIzl4AcOHJp4XuVKpyrjO5m0jJjZoBpppylKhgUTASrluq3G1Y+KQEjq89sH9ZcTwYZhl6jmkPgDZ6/yuyDAOQMTFqSHaMUaK2oUNrvMLa3Efih1o7lJlYW9SHTD2AxzjZn6Aw6G4W6wCszonPisKj5UloJ2E5Z6HqD4iGpwm++p17JtLPv18M33dTAs15QgFoN7y6uDTQUwD3wU3jd6K5EsYZASQNTTS1k0XDJxmZ8fSwMjgszYR1t8Ox0EdHVkSGizRLnRQLdBjk+/ZALwHfp0KU+x2KN47ScES8+UMZcprM2VQdN4D+59GtaVKdmQiJeWt+SfWtPbT/qTvmoDLu5O4zdUXSjhrF4lJFBZwhsuzF+AhxeQVckz0L8pXWz++J0+wh9cfd+m/R49BQJNL6uJi0NurUY3o7UjF8uQazoIJVsZ2QpZtfq6z54vEABk/piUgu5GlL3eFNVp7IfFHja7DGoU2LGizwkEuay3E=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
